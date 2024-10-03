@@ -1,0 +1,48 @@
+<html>
+<head>
+	<title>Tres en raya</title>
+<style type="text/css">
+.val {
+	width: 30;
+	height: 35;
+	background-color: lightblue;
+	text-align: center;
+}
+.noval {
+	width: 30;
+	height: 35;
+	background-color: violet;
+	text-align: center;
+}
+</style>
+<script language="JavaScript">
+function cambiar() {
+	if(event.srcElement.innerHTML == "")
+		event.srcElement.innerHTML = "<img width=30 src='./imagenes/circulo.png'>";
+	else
+		event.srcElement.innerHTML = "<img width=30 src='./imagenes/cruz.png'>";
+
+}
+</script>
+</head>
+<body onclick="cambiar()"> 	
+<h1 align="center">Juego del Tres en Raya</h1>
+<table align="center" border="5" cellspacing="5">
+<tr>
+	<td class="val"></td>
+	<td class="val"></td>
+	<td class="val"></td>
+</tr>
+<tr>
+	<td class="val"></td>
+	<td class="val"></td>
+	<td class="val"></td>
+</tr>
+<tr>
+	<td class="val"></td>
+	<td class="val"></td>
+	<td class="val"></td>
+</tr>
+</table>
+</body>
+</html>
