@@ -2,27 +2,37 @@
 <head>
 	<title>Tres en raya</title>
 <style type="text/css">
-.val {
-	width: 30;
-	height: 35;
-	background-color: lightblue;
-	text-align: center;
-}
-.noval {
-	width: 30;
-	height: 35;
-	background-color: violet;
-	text-align: center;
-}
+	.val {
+		width: 30;
+		height: 35;
+		background-color: lightblue;
+		text-align: center;
+	}
+	.noval {
+		width: 30;
+		height: 35;
+		background-color: violet;
+		text-align: center;
+	}
 </style>
 <script language="JavaScript">
-function cambiar() {
-	if(event.srcElement.innerHTML == "")
-		event.srcElement.innerHTML = "<img width=30 src='./imagenes/circulo.png'>";
-	else
-		event.srcElement.innerHTML = "<img width=30 src='./imagenes/cruz.png'>";
-
-}
+	var n = 0;
+	function cambiar() {
+		// uno.innerText = "Hola";
+		// if(event.srcElement.className == "val") 
+		// className --> se pone la class del objeto
+		// tagName --> se pone en mayúsculas el objeto
+		if(event.srcElement.tagName == "TD"){
+			if(n==0) {
+				event.srcElement.innerHTML = "<img src=imagenes/cruz.png height=30>";
+				n = 1;
+			}else{
+				event.srcElement.innerHTML = "<img src=imagenes/circulo.png height=30>";
+				n = 0;
+			}
+			// n = (n + 1) % 2;
+		}
+	}
 </script>
 </head>
 <body onclick="cambiar()"> 	
