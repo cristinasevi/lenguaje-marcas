@@ -2,15 +2,36 @@
 <head>
 	<title>Cambiar de clase</title>
 <style type="text/css">
-	
+	.bloque1 {
+		position: absolute;
+		width: 300px;
+		top: 50px;
+		left: 20px;
+		background-color: lemonchiffon;
+	}
+
+	.bloque2 {
+		position: absolute;
+		width: 300px;
+		top: 50px;
+		left: 400px;
+		background-color: lightcoral;
+	}
 </style>
 <script language="JavaScript">
 	function cambiar() {
-
+		if(b1.className == "bloque1"){
+			b1.className = "bloque2";
+			b2.className = "bloque1";
+		}
+		else{
+			b1.className = "bloque1";
+			b2.className = "bloque2";
+		}
 	}
 </script>
 </head>
-<body onclick="cambiar()"> 	
+<body> 	
 	<div id="b1" class="bloque1">
 		<img src="imagenes/futbolista1.jpg" height="150" style="margin:20px">
 		<p align="justify" style="margin:20px">
@@ -25,5 +46,6 @@
 			Con el Fútbol Club Barcelona, al que estuvo ligado más de veinte años, ganó 35 títulos, entre ellos, diez de La Liga, cuatro de la Liga de Campeones de la UEFA y siete de la Copa del Rey.
 		</p>
 	</div>
+	<input type="button" value="Intercambio" onclick="cambiar()">
 </body>
 </html>

@@ -1,0 +1,53 @@
+<html>
+<head>
+	<title>Moviendo objetos</title>
+<style type="text/css">
+	#cruz {
+        position: absolute;
+        top: 400px;
+        left: 500px;
+    }
+
+    #circulo {
+        position: absolute;
+        top: 200px;
+        left: 100px;
+    }
+</style>
+<script language="JavaScript">
+    objeto = null;
+    ejez = 2;
+
+    function cargar() {
+        if(event.srcElement.tagName == "IMG"){
+            objeto = event.srcElement;
+            objeto.style.zIndex = ejez;
+            ejez++;
+        } 
+    }
+
+	function mover() {
+        // alert(event.x); --> saca la posición X de donde haces click con el ratón
+        // alert(event.y); --> saca la posición Y de donde haces click con el ratón
+        if(objeto != null){
+            objeto.style.left = event.x - 50; // mueve en el eje de las x --> horizontal
+            objeto.style.top = event.y - 50; // mueve en el eje de las y --> vertical
+            // -50 --> para que el ratón se quede en el medio de la imagen  
+        }
+    }
+
+    function soltar() {
+        objeto = null;
+    }
+</script>
+</head>
+<body onmousedown="cargar()" onmousemove="mover(); event.returnValue=false" onmouseup="soltar()"> 
+    <!-- 
+    onmousedown: controla cuando clicas con el botón izquierdo del ratón y lo sueltas 
+    onmouseup: controla cuando sueltas de clicar el botón izquierdo del ratón
+    onmousemove: registra cada cierto tiempo los movimientos que hace el ratón
+    --> 	
+    <img id="cruz" src="imagenes/cruz.png" height="100">
+    <img id="circulo" src="imagenes/circulo.png" height="100">
+</body>
+</html>
