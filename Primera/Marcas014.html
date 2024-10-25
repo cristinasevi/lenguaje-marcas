@@ -55,6 +55,7 @@
 <script language="JavaScript">
     var actual = 1;
     var respuestas = [7, 8, 2, 0];
+    var acertadas = [0, 0, 0, 0];
 
     function pasar() {
         if(((event.key == 's') || (event.key == 'S')) && (actual < 6)){
@@ -71,13 +72,14 @@
 
     function cotejar(numero) {
         if(numero == respuestas[actual-3]) {
-            if(actual == 6)
-                alert("Has acertado, eres muy listo!");
-            } else{
-                alert("Has fallado!");
-            }
+            acertadas[actual-3] = 1;
+            cont = 0;
+            while((acertadas[cont] == 1) && (cont < acertadas.length))
+                cont++;
+            if(cont == 4)
+                alert("Has acertado todas!");
         }
-    
+    }
 </script>
 </head>
 <body onkeypress="pasar()">  <!-- onkeypress: al pulsar una tecla -->
