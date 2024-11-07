@@ -3,6 +3,21 @@
 	<title>Ejercicio de examen: Calculadora</title>
 <script language="JavaScript">
     function calcular() {
+        switch(operador.value) {
+            case "+":
+                resultado.innerHTML = parseInt(num1.value) + parseInt(num2.value);
+                break;
+            case "-":
+                resultado.innerHTML = parseInt(num1.value) - parseInt(num2.value);
+                break;
+            case "*":
+                resultado.innerHTML = parseInt(num1.value) * parseInt(num2.value);
+                break;
+            case "/":
+                resultado.innerHTML = parseInt(num1.value) / parseInt(num2.value);
+                break;
+        }
+        /*
         const num1 = parseFloat(document.getElementById("num1").value);
         const operador = document.getElementById("operador").value;
         const num2 = parseFloat(document.getElementById("num2").value);
@@ -18,12 +33,20 @@
             resultado = num1 / num2;  
         
         document.getElementById("resultado").value = resultado;
+        */
+    }
+
+    function borrar() {
+        document.getElementById("num1").value = " ";
+        document.getElementById("operador").value = " ";
+        document.getElementById("num2").value = " ";
+        document.getElementById("resultado").innerText = " ";
     }
 </script>
 </head>
 <body>
-    <h1>Calculadora</h1>
-    <table>
+    <h1 align="center">Calculadora</h1>
+    <table align="center">
         <tr>
             <td>
                 <input type="text" id="num1">
@@ -42,11 +65,15 @@
             <td>
                 =
             </td>
-            <td>
+            <td id="resultado"></td>
+            <!-- <td>
                 <input type="text" id="resultado" readonly>
+            </td> -->
+            <td>
+                <input type="button" value="Calcular" onclick="calcular()"></button>
             </td>
             <td>
-                <button onclick="calcular()">Calcular</button>
+                <button onclick="borrar()">Borrar</button>
             </td>
         </tr>
     </table>
