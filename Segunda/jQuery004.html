@@ -1,0 +1,126 @@
+<html>
+<head>
+	<title>Eventos en general</title>
+<script type="text/javaScript" src="jquery-1.11.2.min.js"></script>
+<script language="JavaScript">
+    /*
+    cuando abras la página, llama a la función de cuando muevas el ratón 
+    llama a la función e, que en el divCoordenadas, pone en negrita las coordenadas 
+    del ratón que se está moviendo por toda la página
+    */
+    $(document).ready(function() {
+        $(document).on("mousemove", function(e) {
+            $("#divCoordenadas").html("<strong>" + e.pageX + "</strong> - <strong>" + e.pageY + "</strong>");
+        });
+
+        // menu contextual: aparece al darle clic derecho en el document
+       $(document).on("contextmenu", function(e) {
+            e.preventDefault(); // quita el menu contextual
+        // pone en el divEstado en negrita que le has dado al click derecho en el document
+            $("#divEstado").html("<strong>Click derecho</strong>"); 
+       });
+
+       $(document).on("click", function(e) {
+        // pone en el divEstado en negrita que le has dado al click izquierdo en el document
+            $("#divEstado").html("<strong>Click izquierdo</strong>"); 
+       });
+
+       $("#divScroll").on("scroll", function(e) {
+        // pone en el divEstado en negrita que le has dado scroll en el divScroll
+            $("#divEstado").html("<strong>Scroll detectado</strong>"); 
+       });
+    });
+</script>
+<style type="text/css">
+    #divScroll {
+        margin: 20px 0;
+        padding: 10px;
+        height: 100px;
+        overflow-y: scroll; /* barra de desplazamiento vertical */
+        border-radius: 5px;  /* borde redondeado */
+        box-shadow: 1px 1px 10px #C0C0C0; /* sombreado */
+        float: right; /* alineación */
+    }
+
+    #divCoordenadas {
+        border: solid 1px #CCC;
+        padding: 10px;
+        width: 200px;
+        text-align: center; /* alinear el texto */
+        border-radius: 5px;
+        box-shadow: 1px 1px 10px #C0C0C0;
+        float: left;
+    }
+
+    #divEstado {
+        padding: 10px;
+        width: 200px;
+        text-align: center; /* alinear el texto */
+        border-radius: 5px;
+        box-shadow: 1px 1px 10px #C0C0C0;
+        float: right;
+    }
+</style>
+</head>
+<body>
+    <div id="divCoordenadas"></div>
+    <div id="divEstado"></div>
+    <div id="divScroll">
+    <p>
+        Stellantis Figueruelas baraja cerrar una de sus líneas hasta 2027 
+        para afrontar la transición al coche eléctrico
+    </p>
+    <p>
+        La línea 2, donde ahora se ensambla el 'Corsa' y el 'Ypsilon', concentraría 
+        también el montaje del Peugeot '208' en previsión de una caída del 22% del 
+        volumen de producción para el año 2025
+    </p>
+    <p>
+        Las turbulencias que atraviesa el mundo de la automoción han obligado a 
+        barajar movimientos de calado en la mayor industria de Aragón. La fábrica 
+        de Stellantis Figueruelas planifica su futuro inmediato en un escenario, 
+        que cada vez gana más fuerza, en el que cancelaría la producción de la 
+        línea 1, destinada ahora al ensamblaje del Peugeot '208', desde algún 
+        momento del próximo año hasta bien entrado el 2027. La multinacional 
+        aprovecharía la coyuntura de un mercado de ventas a la baja para afrontar 
+        la transición de la planta al vehículo eléctrico, lo que en la jerga de 
+        Stellantis supone instalar la plataforma de montaje STLA Small, además de 
+        para asumir una importante reducción de la producción, inducido precisamente 
+        por el pinchazo del mercado de los enchufables.
+    </p>
+    <p> 
+        El movimiento obligaría a trasladar la producción del utilitario de la 
+        marca francesa a la segunda línea con la que se trabaja en la factoría, 
+        que sumaría el montaje del '208' al del Opel 'Corsa' y al del Lancia 
+        'Ypsilon'. Así lo publicó ayer en exclusiva el medio especializado La 
+        Tribuna de la Automoción en una información que, según afirman con 
+        rotundidad distintas fuentes del sector a este diario, es «el escenario 
+        con más peso entre los que aún se barajan». Stellantis, sin embargo y 
+        como suele ser habitual en lo referente a sus planes industriales, rechaza 
+        ofrecer cualquier tipo de valoración sobre la publicación.
+    </p>
+    <p>
+        La intención de concentrar la producción en la línea 2 llega justo cuando 
+        la dirección y los sindicatos están inmersos en la negociación de un 
+        expediente de regulación temporal de empleo (erte) en la fábrica de 
+        Figueruelas, cuyo acuerdo se preveía alcanzar incluso esta misma semana. 
+        La empresa propone aplicar esta herramienta de suspensión temporal del 
+        empleo durante 35 días para 4.200 trabajadores con el objetivo de afrontar 
+        una caída de la producción que rondaría el 20% para el próximo 2025 
+        respecto al presente curso, lo que dejaría la cifra de vehículos 
+        ensamblados cerca de los 290.000 respecto a la previsión de 375.000 
+        con los que se prevé cerrar 2024. 
+    </p>
+    <p>
+        Y precisamente en la interpretación laboral del nuevo escenario está el 
+        jugo del asunto, dado que su impacto en el empleo se sumaría a las últimas 
+        decisiones tomadas por la multinacional, como la suspensión del turno de 
+        noche de forma indefinida y la destrucción de 300 contratos eventuales 
+        antes de que termine el mes de marzo. ¿Cómo producir los tres modelos en 
+        una sola línea? Pues posiblemente recuperando ese turno nocturno que 
+        desaparecerá, en principio de forma temporal, el 1 de diciembre, y que 
+        hasta ahora tenía aptitudes para operar en cualquiera de las dos líneas.
+    </p>
+</div>
+</body>
+</html>
