@@ -74,6 +74,15 @@
 ```javascript
   $("#elemento").css("color", "red"); // Cambia el color del texto a rojo
 ```
+- `append()`: Permite agregar contenido nuevo (como texto, elementos HTML o incluso objetos) dentro del elemento seleccionado.
+```javascript
+  $("#elemento").append($("<input>")
+```
+- `attr()`: Permite añadir atributos o modificar los ya existentes en el elemento seleccionado.
+   Estructura: `attr(propiedad, valor)`
+```javascript
+  $("#elemento").append($("<input>").attr("type", "button").attr("value", "Hola"));
+```
 
 Para registrar la posición del ratón:
     - `event.clientX` y `event.clientY`: Coordenadas relativas a la ventana del navegador.
