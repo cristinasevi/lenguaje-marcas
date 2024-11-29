@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Examen 001</title>
+<style>
+    img {
+        position: absolute;
+    }
+
+    input {
+        position: absolute;
+    }
+</style>
+<script language="JavaScript">
+    var actual = 1;
+    function anterior() {
+        actual--;
+        if(actual == 0) actual = 4; 
+        imagen.src = "imagenes/persona" + actual + ".jpg";
+    }
+
+    function siguiente() {
+        actual++;
+        if(actual > 4) actual = 1;
+        imagen.src = "imagenes/persona" + actual + ".jpg";
+    }
+</script>
+</head>
+<body>
+    <img src="imagenes/persona1.jpg" id="imagen" style="left:400px; top:50px" width="300">
+    <input type="button" value="Anterior" onclick="anterior()" style="left:400px; top:400px">
+    <input type="button" value="Siguiente" onclick="siguiente()" style="left:475px; top:400px">
+</body>
+</html>
