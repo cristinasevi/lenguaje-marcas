@@ -74,7 +74,71 @@ Dentro de la etiqueta del `<form>` se tienen que poner estos elementos:
 
 ### CSS
 
+#### **1. Selector de ID**
+- Se usa para seleccionar un elemento único en el documento.
+- En HTML, un ID se define con el atributo `id`.
+- En CSS, los IDs se identifican con el prefijo `#`.
 
+```html
+<div id="mi_id">Texto con un ID único</div>
+```
+```css
+#mi_id {
+    color: red; /* Cambia el texto del ID a color rojo */
+    font-size: 20px; /* Ajusta el tamaño de la fuente */
+    text-transform: uppercase; /* Pone el texto en mayúsculas */
+    border-width: 6; /* Define el grososr del borde */
+    border-style: solid; /* El borde será una línea continua, dashed es con guiones, groove es un borde tallado... */
+    border-color: black; /* Cambia el color del borde a negro */
+}
+```
+
+#### **2. Selector de Clase**
+- Se usa para seleccionar uno o varios elementos que comparten la misma clase.
+- En HTML, una clase se define con el atributo `class`.
+- En CSS, las clases se identifican con el prefijo `.`.
+
+```html
+<p class="mi_clase">Texto con clase compartida 1</p>
+<p class="mi_clase">Texto con clase compartida 2</p>
+```
+```css
+.mi_clase {
+    background-color: #00FF00; /* Cambia el color de fondo de todos los elementos con esta clase a verde */
+    font-weight: bold; /* Aplica negrita */
+    text-align: center; /* Alinea el texto al centro */
+    margin-top: 5; /* Establece el margen superior, también esta el margin-bottom, margin-left, margin-rigth */
+    width: 30px; /* Indica el ancho del elemento, se puede dar en px, %, em... */
+    height: 35px; /* Indica la altura del elemento */
+}
+```
+
+#### **3. Selector de Etiqueta (Tag)**
+- Se usa para seleccionar todos los elementos de un tipo específico (por ejemplo, todos los `<p>`, `<h1>`, etc.).
+- En CSS, simplemente se escribe el nombre del tag.
+
+```html
+<p>Primer párrafo</p>
+<p>Segundo párrafo</p>
+<a href="imagenes/imagen.jpg">Enlace</a>
+```
+```css
+p {
+    font-family: Helvetica; /* Cambia el tipo de fuente de todos los párrafos a Helvetica */
+    text-indent: 2.5in; /* Indentar a la derecha en inch */
+}
+
+a {
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    position: absolute; /* Posiciona el elemento de forma independiente, se puede mover con la propiedades: top, right, bottom y left */
+}
+```
+
+| Selector | Descripción                           | Ejemplo CSS                |
+|----------|---------------------------------------|----------------------------|
+| `#id`    | Aplica a un único ID                 | `#mi_id { color: red; }`   |
+| `.class` | Aplica a todos los elementos con esa clase | `.mi_clase { color: blue; }` |
+| `tag`    | Aplica a todos los elementos de ese tipo (tag) | `p { font-size: 16px; }`    |
 
 ### JavaScript
 
