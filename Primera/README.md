@@ -50,13 +50,17 @@
   - `<th>`: Define una celda de encabezado.
 
 - **Atributos:**
+  - `border: 1px solid black`: Define el borde de la tabla con una línea negra sólda de 1px.
+    
   - `valign`: Controla la alineación vertical del contenido dentro de una celda.
     - `valign="top"`: Alinea el contenido en la parte superior de la celda.
     - `valign="center"`: Centra el contenido verticalmente en la celda.
     - `valign="bottom"`: Alinea el contenido en la parte inferior de la celda.
+
+  - `cellpadding`: Define el espacio entre el contenido de la celda y su borde.
+  - `cellspacing`: Define el espacio entre las celdas de la tabla.
    
   - `colspan`: Expande una celda horizontalmente, ocupando varias columnas.
-  
   - `rowspan`: Expande una celda verticalmente, ocupando varias filas.
  
 - **Elementos en Formulario `<form>`:**
@@ -71,6 +75,22 @@
 Dentro de la etiqueta del `<form>` se tienen que poner estos elementos:
   - `action`: Define la URL a la que se enviarán los datos del formulario cuando el usuario haga clic en el botón de envío. Ejemplo: `action="programa.php"`
   -  `method`: Especifica el método HTTP que se usará para enviar los datos. Hay dos opciones comunes: `post` y `get`. Ejemplo: `method="post"`.
+
+### Enlaces Internos en HTML
+
+Permiten navegar dentro del mismo documento HTML. Se utilizan para crear saltos a secciones específicas del contenido sin necesidad de cargar una nueva página.
+
+**1. Definir un destino**: Se asigna un **`id`** único al elemento de destino (puede ser un encabezado, un párrafo, etc.).
+
+```html
+   <h2 id="salto">Este es el apartado al que quiero saltar</h2>
+```
+
+**2. Crear el enlace**: Se usa un enlace con el atributo **`href="#id"`** para hacer referencia a ese destino.
+
+```html
+   <a href="#salto">Salta al apartado</a>
+```
 
 ### CSS
 
