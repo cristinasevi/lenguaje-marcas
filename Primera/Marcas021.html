@@ -1,0 +1,70 @@
+<html>
+<head>
+	<title>Examen 002</title>
+<style>
+    td{
+        width: 150px;
+        height: 150px;
+        border: 1px solid black;
+        padding: 0;
+        margin: 0;
+    }
+    img{
+        width: 150px;
+        height: 150px;
+    }
+</style>
+<script>
+    var imgSelec = "";
+
+    function seleccionar(event) {
+        imgSelec = event.src;
+        console.log("Imagen seleccionada:", imgSelec);
+    }
+
+    function cambiar(event) {
+        if (imgSelec !== "") {
+            event.innerHTML = `<img src="${imgSelec}">`;
+        } else {
+            console.log("No se ha seleccionado ninguna imagen.");
+        }
+    }
+</script>
+</head>
+<body >
+    <table style="border: 1px solid black;" align="center" onclick="cambiar(event.target)">
+        <tr>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+        </tr>
+        <tr>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+        </tr>
+        <tr>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+        </tr>
+        <tr>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+        </tr>
+    </table>
+    <table style="border: 1px solid black;" align="center" onclick="seleccionar(event.target)">
+        <tr>
+            <td><img src="imagenes/persona1.jpg" id="imagen0"></td>
+            <td><img src="imagenes/persona2.jpg" id="imagen1"></td>
+            <td><img src="imagenes/persona3.jpg" id="imagen2"></td>
+            <td><img src="imagenes/persona4.jpg" id="imagen3"></td>
+        </tr> 
+    </table>
+</body>
+</html>
