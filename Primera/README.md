@@ -92,7 +92,7 @@ Permiten navegar dentro del mismo documento HTML. Se utilizan para crear saltos 
    <a href="#salto">Salta al apartado</a>
 ```
 
-### CSS
+## CSS
 
 #### **1. Selector de ID**
 - Se usa para seleccionar un elemento único en el documento.
@@ -160,7 +160,20 @@ a {
 | `.class` | Aplica a todos los elementos con esa clase | `.mi_clase { color: blue; }` |
 | `tag`    | Aplica a todos los elementos de ese tipo (tag) | `p { font-size: 16px; }`    |
 
-### JavaScript
+## JavaScript
+
+### Eventos
+
+| **Evento**           | **Descripción**                                                           | **Ejemplo**                                                |
+|----------------------|---------------------------------------------------------------------------|------------------------------------------------------------|
+| **`onclick`**         | Se activa al hacer clic en un elemento.                                   | `<button onclick="cambiar()">Haz clic</button>`             |
+| **`onload`**          | Se activa cuando la página ha cargado completamente.                      | `<body onload="setInterval('mover()', 200)">`              |
+| **`onmousedown`**     | Se activa cuando el botón izquierdo del ratón se presiona.                | `<div onmousedown="iniciarArrastre()">Arrastra</div>`       |
+| **`onmousemove`**     | Se activa cuando el ratón se mueve sobre un elemento.                     | `<div onmousemove="moverElemento()">Mueve el ratón aquí</div>` |
+| **`onmouseup`**       | Se activa cuando se suelta el botón del ratón.                            | `<div onmouseup="detenerArrastre()">Suelta el ratón aquí</div>` |
+| **`onkeypress`**      | Se activa cuando se presiona una tecla.                                   | `<input onkeypress="pasar()">`                              |
+| **`onmouseover`**     | Se activa cuando el ratón pasa sobre un elemento.                         | `<div onmouseover="cambiar()">Pasa el ratón</div>`           |
+| **`onmouseout`**      | Se activa cuando el ratón sale de un elemento.                            | `<div onmouseout="restaurar()">Saca el ratón</div>`         |
 
 
 ---
