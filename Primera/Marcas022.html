@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title></title>
+<style>
+	#avion {
+		position: absolute; 
+		left: 20px; 
+		top: 0px;
+		margin-top: 300px;
+	}
+</style>
+<script language="JavaScript">
+	function derecha() {
+		//let avion = document.getElementById('avion');
+		//let currentLeft = parseInt(avion.style.left) || 0;
+		//avion.style.left = (currentLeft + 5) + "px";
+		avion.style.left = parseInt(avion.style.left) + 5 + "px";
+	}
+
+    function mover(event) {
+		//let avion = document.getElementById('avion');
+		//let currentTop = parseInt(avion.style.top) || 0;
+
+		if((event.key == "A") || (event.key == "a")) {
+			//avion.style.top = (currentTop-20) + "px";
+			avion.style.top = parseInt(avion.style.top) - 20 + "px";	
+		}
+		if((event.key == "D") || (event.key == "d")) {
+			//avion.style.top = (currentTop+20) + "px";
+			avion.style.top = parseInt(avion.style.top) + 20 + "px";
+		} 
+	}
+
+	function desaparecer() {
+		//let avion = document.getElementById('avion');
+
+		avion.style.display = "none";
+	}
+</script>
+</head>
+<body onkeypress="mover(event)" onload="setInterval(derecha, 50)">
+	<h1 align="center">Avion volador</h1>
+	<div id="avion" style="left:20px; top:0px">
+		<img src="imagenes/avion.png" width="150px" onclick="desaparecer()">
+	</div>
+</body>
+</html>
