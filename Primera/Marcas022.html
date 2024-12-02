@@ -15,6 +15,9 @@
 		//let currentLeft = parseInt(avion.style.left) || 0;
 		//avion.style.left = (currentLeft + 5) + "px";
 		avion.style.left = parseInt(avion.style.left) + 5 + "px";
+		if(parseInt(avion.style.left) > 700){
+            avion.style.left = 0;
+        }
 	}
 
     function mover(event) {
