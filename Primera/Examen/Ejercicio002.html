@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title>Ejercicio002</title>
+<style>
+    #parrafo{
+        width: 900px;
+        height: 200px;
+        border: 1px solid black;
+    }
+</style>
+<script language="JavaScript">
+    function cambiar() {
+        texto.innerHTML = parrafo.style.backgroundColor = "rgb(" + rojo.value + "," + verde.value + "," + azul.value + ")";
+    }
+</script>
+</head>
+<body>
+    <h1 align="center">Colores RGB</h1>
+    <div align="center">
+        <input type="text" id="rojo">
+        <input type="text" id="verde">
+        <input type="text" id="azul">
+        <br><br>
+        <input type="button" value="Calcular" onclick="cambiar()">
+        <p id="parrafo"></p>
+        <p id="texto"></p>
+    </div>
+</body>
+</html>

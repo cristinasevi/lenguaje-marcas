@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>Ejercicio001</title>
+<style>
+    div {
+        position: absolute;
+        border: 1px solid black;
+        width: 500px;
+        height: 500px;
+    }
+
+    img {
+        position: absolute;
+    }
+</style>
+<script language="JavaScript">
+    function pulsar(event) {
+        if(event.key == "ArrowUp") {
+            avion.style.top = parseInt(avion.style.top) - 5 + "px";
+        }
+        if(event.key == "ArrowDown") {
+            avion.style.top = parseInt(avion.style.top) + 5 + "px";
+        }
+        if(event.key == "ArrowLeft") {
+            avion.style.left = parseInt(avion.style.left) - 5 + "px";
+        }
+        if(event.key == "ArrowRight") {
+            avion.style.left = parseInt(avion.style.left) + 5 + "px";
+        }
+
+        if(parseInt(avion.style.top) < 0) {
+            avion.style.top = "0px";
+        }
+        if(parseInt(avion.style.left) < 0) {
+            avion.style.left = "0px";
+        }
+        if(parseInt(avion.style.top) > 420) {
+            avion.style.top = "420px";
+        }
+        if(parseInt(avion.style.left) > 420) {
+            avion.style.left = "420px";
+        }
+    }
+</script>
+</head>
+<body onkeydown="pulsar(event)">
+    <div style="top:200px; left:200px;">
+        <img id="avion" src="imagenes/avion.png" width="80px" style="top:0px;left:0px;">
+    </div>
+</body>
+</html>

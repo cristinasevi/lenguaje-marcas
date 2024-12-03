@@ -1,0 +1,69 @@
+<html>
+<head>
+	<title>Ejercicio003</title>
+<style>
+    table {
+        border: 1px solid black;
+        position: absolute;
+    }
+
+    td {
+        border: 1px solid black;
+        width: 100px;
+        height: 100px;
+    }
+
+    #tabla1 {
+        left: 30px;
+    }
+
+    #tabla2 {
+        left: 300px;
+    }
+</style>
+<script language="JavaScript">
+    var imagenSelec = "";
+
+    function seleccionar(event) {
+        if (event.tagName == 'IMG') {
+            imagenSelec = event.src;
+            var celda2 = document.getElementById("celda2");
+            if (imagenSelec != "") {
+                celda2.innerHTML = `<img src="${imagenSelec}" width="100px">`;
+                event.src = "";
+            }
+        }
+    }
+</script>
+</head>
+<body>
+    <table id="tabla1" onclick="seleccionar(event.target)">
+        <tr>
+            <td id="celda1"><img id="imagen1" src="imagenes/persona1.jpg" width="100px"></td>
+        </tr>
+        <tr>
+            <td id="celda1"><img id="imagen2" src="imagenes/persona2.jpg" width="100px"></td>
+        </tr>
+        <tr>
+            <td id="celda1"><img id="imagen3" src="imagenes/persona3.jpg" width="100px"></td>
+        </tr>
+        <tr>
+            <td id="celda1"><img id="imagen4" src="imagenes/persona4.jpg" width="100px"></td>
+        </tr>
+    </table>
+    <table id="tabla2">
+        <tr>
+            <td id="celda2"></td>
+        </tr>
+        <tr>
+            <td id="celda2"></td>
+        </tr>
+        <tr>
+            <td id="celda2"></td>
+        </tr>
+        <tr>
+            <td id="celda2"></td>
+        </tr>
+    </table>
+</body>
+</html>
