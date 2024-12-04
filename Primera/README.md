@@ -172,8 +172,8 @@ a {
 | **`onmousemove`**     | Se activa cuando el ratón se mueve sobre un elemento.                     | `<div onmousemove="moverElemento()">Mueve el ratón aquí</div>` |
 | **`onmouseup`**       | Se activa cuando se suelta el botón del ratón.                            | `<div onmouseup="detenerArrastre()">Suelta el ratón aquí</div>` |
 | **`onkeypress`**      | Se activa cuando se presiona una tecla.                                   | `<input onkeypress="pasar()">`                              |
+| **`onkeydown`**       | Se activa cuando una tecla es presionada, incluso antes de que se registre el carácter. | `<input onkeydown="manejarTecla()">`                      |
 | **`onmouseover`**     | Se activa cuando el ratón pasa sobre un elemento.                         | `<div onmouseover="cambiar()">Pasa el ratón</div>`           |
 | **`onmouseout`**      | Se activa cuando el ratón sale de un elemento.                            | `<div onmouseout="restaurar()">Saca el ratón</div>`         |
-
 
 ---
