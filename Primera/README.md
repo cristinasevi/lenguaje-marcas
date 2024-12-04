@@ -179,9 +179,15 @@ a {
 
 ### Funciones
 
-**`document.getElementById()`**: Se utiliza para acceder y manipular elementos por su atributo id. Ejemplo: `document.getElementById("num1").value = " "`.
+**`document.getElementById()`**: Se utiliza para acceder y manipular elementos por su atributo id. 
+```javascript
+document.getElementById("num1").value = " "
+```
 
-**`parseInt()`**: Convierte una cadena de texto a un número entero. Utilizado para obtener y manipular valores como posiciones. Ejemplo: `parseInt(elemento.style.left) + 20 + “px”`.
+**`parseInt()`**: Convierte una cadena de texto a un número entero. Utilizado para obtener y manipular valores como posiciones. 
+```javascript
+parseInt(elemento.style.left) + 20 + “px”
+```
 
 **`event.x`**: Devuelve la posición horizontal (eje X, left) del ratón. 
 
@@ -200,15 +206,31 @@ if (event.key == 'Enter') {
 }
 ```
 
-**`document.write()`**: Permite agregar contenido dinámico al documento, como texto o imágenes. Ejemplo, `document.write("<body background=imagenes/fondo" + fecha.getSeconds() % 4 + ".jpg>")`.
+**`document.write()`**: Permite agregar contenido dinámico al documento, como texto o imágenes. 
+```javascript
+document.write("<body background=imagenes/fondo" + fecha.getSeconds() % 4 + ".jpg>")
+```
 
-**` innerHTML`**: Accede o modifica el contenido HTML de un elemento. Ejemplo: `event.innerHTML = "<b>Texto en negrita</b>"`.
+**` innerHTML`**: Accede o modifica el contenido HTML de un elemento. 
+```javascript
+event.innerHTML = "<b>Texto en negrita</b>"
+```
 
-**`setInterval`**: Ejecuta una función a intervalos regulares. Ejemplo: `setInterval(funcion()', 1000)`. 
+**`setInterval`**: Ejecuta una función a intervalos regulares.  
+```javascript
+setInterval(funcion()', 1000)
+```
 
-**`clearInterval()`**: Detiene la ejecución repetitiva de una función que ha sido configurada con `setInterval()`. Ejemplo: `clearInterval(intervalo)`. 
+**`clearInterval()`**: Detiene la ejecución repetitiva de una función que ha sido configurada con `setInterval()`. 
+```javascript
+clearInterval(intervalo)
+```
 
-**`new Date()`**: Se utiliza para crear objetos de tipo **Date**, que representan un momento en el tiempo, con funcionalidades para manejar fechas y horas. Ejemplo: `var fecha = new Date()`. Funcionalidades: `getMonth()`, `getDate()`, `getHours()`, `getMinutes()`, `getSeconds()`. 
+**`new Date()`**: Se utiliza para crear objetos de tipo **Date**, que representan un momento en el tiempo, con funcionalidades para manejar fechas y horas. 
+Funcionalidades: `getMonth()`, `getDate()`, `getHours()`, `getMinutes()`, `getSeconds()`. 
+```javascript
+var fecha = new Date();
+```
 
 **`alert()`**: Muestra un cuadro de alerta con información.
 
