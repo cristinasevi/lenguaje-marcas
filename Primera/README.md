@@ -110,6 +110,7 @@ Permiten navegar dentro del mismo documento HTML. Se utilizan para crear saltos 
     border-width: 6; /* Define el grososr del borde */
     border-style: solid; /* El borde será una línea continua, dashed es con guiones, groove es un borde tallado... */
     border-color: black; /* Cambia el color del borde a negro */
+    zIndex: 10 /* Controla el apilamiento de los elementos en el eje Z, es decir, la profundidad o el orden de los elementos en la pantalla cuando se solapan. */
 }
 ```
 
@@ -175,5 +176,76 @@ a {
 | **`onkeydown`**       | Se activa cuando una tecla es presionada, incluso antes de que se registre el carácter. | `<input onkeydown="manejarTecla()">`                      |
 | **`onmouseover`**     | Se activa cuando el ratón pasa sobre un elemento.                         | `<div onmouseover="cambiar()">Pasa el ratón</div>`           |
 | **`onmouseout`**      | Se activa cuando el ratón sale de un elemento.                            | `<div onmouseout="restaurar()">Saca el ratón</div>`         |
+
+### Funciones
+
+**`document.getElementById()`**: Se utiliza para acceder y manipular elementos por su atributo id. Ejemplo: `document.getElementById("num1").value = " "`.
+
+**`parseInt()`**: Convierte una cadena de texto a un número entero. Utilizado para obtener y manipular valores como posiciones. Ejemplo: `parseInt(elemento.style.left) + 20 + “px”`.
+
+**`event.x`**: Devuelve la posición horizontal (eje X, left) del ratón. 
+
+**`event.y`**: Devuelve la posición vertical (eje Y, top) del ratón. 
+
+**`event.key`**: Devuelve la tecla presionada durante un evento de teclado. Es útil para realizar acciones basadas en la interacción del usuario con el teclado. Ejemplo:
+```javascript
+if (event.key == 'ArrowUp') { 
+    console.log('Se presionó la tecla de flecha hacia arriba'); 
+} 
+if (event.key == 'a') { 
+    console.log('Se presionó la tecla a'); 
+} 
+if (event.key == 'Enter') { 
+    console.log('Se presionó la tecla Enter'); 
+}
+```
+
+**`document.write()`**: Permite agregar contenido dinámico al documento, como texto o imágenes. Ejemplo, `document.write("<body background=imagenes/fondo" + fecha.getSeconds() % 4 + ".jpg>")`.
+
+**` innerHTML`**: Accede o modifica el contenido HTML de un elemento. Ejemplo: `event.innerHTML = "<b>Texto en negrita</b>"`.
+
+**`setInterval`**: Ejecuta una función a intervalos regulares. Ejemplo: `setInterval(funcion()', 1000)`. 
+
+**`clearInterval()`**: Detiene la ejecución repetitiva de una función que ha sido configurada con `setInterval()`. Ejemplo: `clearInterval(intervalo)`. 
+
+**`new Date()`**: Se utiliza para crear objetos de tipo **Date**, que representan un momento en el tiempo, con funcionalidades para manejar fechas y horas. Ejemplo: `var fecha = new Date()`. Funcionalidades: `getMonth()`, `getDate()`, `getHours()`, `getMinutes()`, `getSeconds()`. 
+
+**`alert()`**: Muestra un cuadro de alerta con información.
+
+**`console.log()`**: Imprime mensajes en la consola del navegador. Es útil para depuración, ya que permite ver el contenido de variables, resultados de funciones, o simplemente verificar si una parte del código se ha ejecutado correctamente.
+
+### Función `switch`
+
+La estructura **`switch`** permite ejecutar diferentes bloques de código según el valor de una expresión. Es útil para simplificar múltiples comparaciones condicionales.
+
+```javascript
+switch(operador.value) {
+        case "+":
+            resultado.innerHTML = parseInt(num1.value) + parseInt(num2.value);
+            break;
+        case "-":
+            resultado.innerHTML = parseInt(num1.value) - parseInt(num2.value);
+            break;
+        case "*":
+            resultado.innerHTML = parseInt(num1.value) * parseInt(num2.value);
+            break;
+        case "/":
+            resultado.innerHTML = parseInt(num1.value) / parseInt(num2.value);
+            break;
+        }
+```
+
+### Operador condicional (ternario)
+
+El **operador condicional** es una forma concisa de escribir una expresión condicional que devuelve un valor según si la condición es verdadera o falsa.
+
+**Sintaxis del operador condicional**
+```javascript
+variable = (condicion) ? valor_si_verdadero : valor_si_falso;
+```
+**Ejemplo**
+```javascript
+horaStr = ((fecha.getHours() < 10)?"0":"") + fecha.getHours() + ":";
+```
 
 ---
