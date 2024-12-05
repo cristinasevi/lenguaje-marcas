@@ -83,6 +83,18 @@
 ```javascript
   $("#elemento").append($("<input>").attr("type", "button").attr("value", "Hola"));
 ```
+- `slideDown()`: Aplica un efecto persiana hacia abajo en el elemento seleccionado.
+  `slideUp()`: Aplica un efecto persiana hacia arriba en el elemento seleccionado.
+   Estructura: `.slideDown(milisegundos);`
+```javascript
+  $("#elemento").slideDown(10000);
+```
+- `stop()`: Detiene la animación en curso del elemento seleccionado.
+```javascript
+  $("#elemento").stop();
+```
+
+### Posiciones del ratón
 
 Para registrar la posición del ratón:
     - `event.clientX` y `event.clientY`: Coordenadas relativas a la ventana del navegador.
@@ -92,6 +104,19 @@ Para registrar la posición del ratón:
   $(document).mousemove(function(event) {
     console.log("Posición X: " + event.pageX + ", Posición Y: " + event.pageY);
   });
+```
+
+### Creación de una imagen dinámica
+
+```javascript
+var imagen = $("<img>", {
+    src: "imagenes/imagen.jpg",  // Fuente de la imagen
+    id: "imagen",                // Identificador único
+    css: {                       // Estilos CSS aplicados a la imagen
+        "padding": "2px",
+        "cursor": "pointer"
+    }
+});
 ```
 
 ---
