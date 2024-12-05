@@ -3,13 +3,13 @@
 	<title>Añadir botones, método append</title>
 <script type="text/javaScript" src="jquery-1.11.2.min.js"></script>
 <script language="JavaScript">
+    /*
+    Funciones jQuery:
+    - append() -> definimos un objeto que no existía y lo metemos en el divAnimado1
+    - attr() -> función para añadir atributos, espera recibir dos parámetros: 
+    nombre de propiedad y valor asigando a la propiedad
+    */
     $(document).ready(function() {
-        /*
-        Funciones jQuery:
-       - append() -> definimos un objeto que no existía y lo metemos en el divAnimado1
-       - attr() -> función para añadir atributos, espera recibir dos parámetros: 
-        nombre de propiedad y valor asigando a la propiedad
-        */
         $("#divAnimado1").append($("<input>").attr("type", "button").attr("value", "Hola"));
         $("#divAnimado2").append($("<button>").text("Probando"));
     });

@@ -1,0 +1,16 @@
+<html>
+<head>
+	<title>Crear un objeto y meterlo en el body</title>
+<script type="text/javaScript" src="jquery-1.11.2.min.js"></script>
+<script language="JavaScript">
+    $(document).ready(function() {
+        var imagen = $("<img>", {src:"imagenes/papelera.jpg", id:"imagen", 
+                                 css: {"padding": "2px", "cursor": "pointer"}
+        })
+    });
+</script>
+</head>
+<body>
+    <input type="button" id="boton" value="Incorporar objeto">
+</body>
+</html>
