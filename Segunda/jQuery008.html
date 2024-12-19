@@ -5,8 +5,16 @@
 <script language="JavaScript">
     $(document).ready(function() {
         var imagen = $("<img>", {src:"imagenes/papelera.jpg", id:"imagen", 
-                                 css: {"padding": "2px", "cursor": "pointer"}
-        })
+                                css: {"padding": "2px", "cursor": "pointer"},
+                                click: function(e) {
+                                    // al dar click a la imagen, te lleva a otro documento
+                                    document.location = "jQuery007.html"
+                                }
+        });
+        $("#boton").click(function() {
+            // al dar click al botón añade la imagen al body
+            $("body").append(imagen);
+        });
     });
 </script>
 </head>

@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Tratar con el evento keydown</title>
+<script type="text/javaScript" src="jquery-1.11.2.min.js"></script>
+<script language="JavaScript">
+    /*
+    Funciones jQuery:
+    - keydown() -> al pulsar la tecla
+    - keyup() -> al soltar la tecla
+    - val() -> añade valor a un input tipo text
+    */
+    $(document).ready(function() {
+        $("#escribe").keydown(function(event) {
+            $("#escribe").val("");
+            // String.fromCharCode saca el código ASCII de la tecla
+            $("#parrafo").text("El código de la tecla " + String.fromCharCode(event.which) + " es " + event.which);
+        });
+
+        $("#escribe").keyup(function(event) {
+            $("#parrafo").text("Acabas de soltar la tecla");
+        });
+    });
+</script>
+</head>
+<body>
+    <p>
+        <input type="text" id="escribe">
+    </p>
+    <p id="parrafo">
+        Mantén pulsada una tecla y después suéltala
+    </p>
+</body>
+</html>
