@@ -93,6 +93,18 @@
 ```javascript
   $("#elemento").stop();
 ```
+- `keydown()`: Se activa al pulsar una tecla en el elemento seleccionado.
+```javascript
+  $("#input").keydown(function(event)
+```
+- `keyup()`: Se activa al soltar una tecla en el elemento seleccionado.
+```javascript
+  $("#input").keyup(function(event)
+```
+- `val()`: Obtiene o asigna el valor de un input tipo texto.
+```javascript
+  $("#input").val("Nuevo valor");
+```
 
 ### Posiciones del ratón
 
@@ -115,8 +127,35 @@ var imagen = $("<img>", {
     css: {                       // Estilos CSS aplicados a la imagen
         "padding": "2px",
         "cursor": "pointer"
+    },
+    click: function() {          // Evento 'click' en la imagen
+        document.location = "index.html"; // Redirige a otra página
     }
 });
+```
+
+### Mostrar la tecla y su código ASCII
+
+```javascript
+$(document).keydown(function(event) {
+    var tecla = String.fromCharCode(event.which); // Carácter de la tecla
+    var codigo = event.which;                    // Código ASCII
+    console.log(tecla + " es " + codigo);
+});
+```
+
+### Estilos CSS
+
+- `transition`: Define qué propiedad será animada, la duración de la transición y el tipo de animación.
+```css
+div {
+    background-color: red;
+    transition: background-color 5s ease; /* Cambia el color de fondo durante 5 segundos con un efecto suave (ease). */
+}
+
+div:hover {  /* :hover: Se activa cuando el ratón pasa sobre el elemento. */
+    background-color: green;
+}
 ```
 
 ---
