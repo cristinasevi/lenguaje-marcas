@@ -100,7 +100,8 @@
 ```
 - `slideDown()`: Aplica un efecto persiana hacia abajo en el elemento seleccionado.
 - `slideUp()`: Aplica un efecto persiana hacia arriba en el elemento seleccionado.
-   Estructura: `.slideDown(milisegundos);` |  `.slideUp(milisegundos);`
+
+  Estructura: `.slideDown(milisegundos);` |  `.slideUp(milisegundos);`
 ```javascript
   $("#elemento").slideDown(10000);
 ```
@@ -122,6 +123,7 @@
 ```
 - `hide()`: Oculta un elemento con una transición que puede personalizarse con la duración.
 - `show()`: Muestra un elemento con una transición que también puede personalizarse.
+
   Estructura: `.hide(milisegundos);` |  `.show(milisegundos);`
 ```javascript
   $("#elemento").hide(4000);
@@ -170,21 +172,21 @@ $(document).keydown(function(event) {
 - `transition`: Define qué propiedad será animada, la duración de la transición y el tipo de animación.
 ```css
 div {
-		background-color: red;
-		padding: 10px;
-		transition: all 5s ease; /* Cambia todos los atributos (all) durante 5 segundos con un efecto suave (ease). Si quisieras cambiar solo el background-color lo pondrías en vez de all */
-	}
+	background-color: red;
+	padding: 10px;
+	transition: all 5s ease; /* Cambia todos los atributos (all) durante 5 segundos con un efecto suave (ease). Si quisieras cambiar solo el background-color lo pondrías en vez de all */
+}
 
-	div:hover {  /* :hover: Se activa cuando el ratón pasa sobre el elemento. */
-		background-color: green;
-		padding: 50px;
-	}
+div:hover {  /* :hover: Se activa cuando el ratón pasa sobre el elemento. */
+	background-color: green;
+	padding: 50px;
+}
 ```
 - `background: linear-gradient(color, color)`: Se utiliza para crear un fondo con un degradado lineal (transición suave entre dos o más colores).
 ```css
 div {
-		background: linear-gradient(#fff, #ccc);
-	}
+	background: linear-gradient(#fff, #ccc);
+}
 ```
 
 ---
