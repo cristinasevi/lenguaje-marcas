@@ -74,6 +74,21 @@
 ```javascript
   $("#elemento").css("color", "red"); // Cambia el color del texto a rojo
 ```
+```javascript
+  $("#elemento").css({ 
+        width: "200px",
+        height: "15px",
+        backgroundColor: "yellow",
+        borderStyle: "solid",
+        borderWidth: "3px",
+        fontFamily: "Verdana",
+        padding: "20px",
+        fontSize: "12px",
+        textAlign: "center",
+        color: "blue",
+        // Cambia varios estilos en formato .json
+  });
+```
 - `append()`: Permite agregar contenido nuevo (como texto, elementos HTML o incluso objetos) dentro del elemento seleccionado.
 ```javascript
   $("#elemento").append($("<input>")
@@ -84,8 +99,8 @@
   $("#elemento").append($("<input>").attr("type", "button").attr("value", "Hola"));
 ```
 - `slideDown()`: Aplica un efecto persiana hacia abajo en el elemento seleccionado.
-  `slideUp()`: Aplica un efecto persiana hacia arriba en el elemento seleccionado.
-   Estructura: `.slideDown(milisegundos);`
+- `slideUp()`: Aplica un efecto persiana hacia arriba en el elemento seleccionado.
+   Estructura: `.slideDown(milisegundos);` |  `.slideUp(milisegundos);`
 ```javascript
   $("#elemento").slideDown(10000);
 ```
@@ -104,6 +119,12 @@
 - `val()`: Obtiene o asigna el valor de un input tipo texto.
 ```javascript
   $("#input").val("Nuevo valor");
+```
+- `hide()`: Oculta un elemento con una transición que puede personalizarse con la duración.
+- `show()`: Muestra un elemento con una transición que también puede personalizarse.
+  Estructura: `.hide(milisegundos);` |  `.show(milisegundos);`
+```javascript
+  $("#elemento").hide(4000);
 ```
 
 ### Posiciones del ratón
@@ -149,13 +170,21 @@ $(document).keydown(function(event) {
 - `transition`: Define qué propiedad será animada, la duración de la transición y el tipo de animación.
 ```css
 div {
-    background-color: red;
-    transition: background-color 5s ease; /* Cambia el color de fondo durante 5 segundos con un efecto suave (ease). */
-}
+		background-color: red;
+		padding: 10px;
+		transition: all 5s ease; /* Cambia todos los atributos (all) durante 5 segundos con un efecto suave (ease). Si quisieras cambiar solo el background-color lo pondrías en vez de all */
+	}
 
-div:hover {  /* :hover: Se activa cuando el ratón pasa sobre el elemento. */
-    background-color: green;
-}
+	div:hover {  /* :hover: Se activa cuando el ratón pasa sobre el elemento. */
+		background-color: green;
+		padding: 50px;
+	}
+```
+- `background: linear-gradient(color, color)`: Se utiliza para crear un fondo con un degradado lineal (transición suave entre dos o más colores).
+```css
+div {
+		background: linear-gradient(#fff, #ccc);
+	}
 ```
 
 ---
