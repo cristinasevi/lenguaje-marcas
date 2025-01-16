@@ -22,6 +22,25 @@ ul.tabs li {
     border-radius: 7px 7px 0px 0px;
 }
 
+ul.tabs li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    display: block;
+    padding: 0 20px;
+}
+
+ul.tabs li a:hover {
+    background-color: #666;
+}
+
+li.activa a {
+    color: #333;
+    font-weight: bold;
+    background-color: #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
 .contenedor {
     float: left;
     clear: both;

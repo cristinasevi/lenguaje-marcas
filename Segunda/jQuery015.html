@@ -4,8 +4,23 @@
 <script type="text/javaScript" src="jquery-1.11.2.min.js"></script>
 <link rel="stylesheet" href="jQuery015.css" type="text/css"></link>
 <script>
+    /*
+    Funciones jQuery:
+    - addClass() -> añade una clase al elemento seleccionado
+    - removeClass() -> elimina la clase de un elemento
+    - find() -> busca elementos dentro del elemento seleccionado
+    */
     $(document).ready(function(event) {
-    
+        $(".contenedor div").hide();
+        $(".contenedor div:first").show(); // :first -> pseudo-clase
+        $("ul.tabs li:first").addClass("activa");
+        $("ul.tabs li").click(function(){
+            $("ul.tabs li").removeClass("activa");
+            $(this).addClass("activa");
+            $(".contenedor div").hide();
+            var parrafoAActivar = $(this).find("a").attr("href");
+            $(parrafoAActivar).show();
+        });
     });
 </script>
 </head>
@@ -14,10 +29,10 @@
         <tr>
             <td>
                 <ul class="tabs">
-                    <li>Menú 1</li>
-                    <li>Menú 2</li>
-                    <li>Menú 3</li>
-                    <li>Menú 4</li>
+                    <li><a href="#tab1">Menú 1</a></li>
+                    <li><a href="#tab2">Menú 2</a></li>
+                    <li><a href="#tab3">Menú 3</a></li>
+                    <li><a href="#tab4">Menú 4</a></li>
                 </ul>
                 <div class="contenedor">
                     <div id="tab1">
