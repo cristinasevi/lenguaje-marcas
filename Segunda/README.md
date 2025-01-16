@@ -128,6 +128,24 @@
 ```javascript
   $("#elemento").hide(4000);
 ```
+- `addClass()`: Añade una clase al elemento seleccionado.
+```javascript
+  $("#elemento").addClass("nombre_clase");
+```
+- `removeClass()`: Elimina la clase de un elemento.
+```javascript
+  $("#elemento").removeClass("nombre_clase");
+```
+- `find()`: Busca elementos dentro del elemento seleccionado.
+```javascript
+  $("#elemento").find("a").attr("href"); // Obtiene el valor del atributo href
+```
+- `appendTo()`: Mueve el elemento seleccionado al final del elemento especificado por selector.
+- `prependTo()`: Mueve el elemento seleccionado al principio del elemento especificado por selector.
+```javascript
+  $("#elemento:first").appendTo("#objeto");
+  $("#elemento:last").prependTo("#objeto");
+```
 
 ### Posiciones del ratón
 
