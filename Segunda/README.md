@@ -146,6 +146,39 @@
   $("#elemento:first").appendTo("#objeto");
   $("#elemento:last").prependTo("#objeto");
 ```
+- `setInterval()`: Ejecuta una instrucción repetidamente en intervalos de tiempo especificados.
+```javascript
+  setInterval(function, milisegundos);
+```
+- `fadeOut()`: Permite hacer que un elemento desaparezca de la página con una transición suave en un tiempo determinado, en milisegundos. Es una forma sencilla de ocultar elementos con efectos visuales.
+- `fadeIn()`: Permite que un elemento aparezca gradualmente en la página con una transición suave en el tiempo especificado, en milisegundos.
+```javascript
+  $(#elemento).fadeOut(milisegundos, callback);
+```
+- `next()`: Se utiliza para seleccionar el siguiente elemento que sigue inmediatamente al elemento actual seleccionado. 
+```javascript
+$("#elemento").next("div").css("color", "red"); 
+```
+- `end()`: Se utiliza cuando necesitas volver al conjunto de elementos anterior, para deshacer una acción de selección y regresar a la selección previa. Es útil cuando se hace una serie de selecciones encadenadas.
+```javascript
+$("#elemento").css("font-weight", "bold").end().css("color", "blue");
+```
+
+### Pseudoclases en jQuery
+
+Las **pseudoclases en jQuery** son selecciones especiales que nos permiten aplicar filtros a un conjunto de elementos en función de su estado, posición o características. A diferencia de las pseudoclases de CSS, las pseudoclases en jQuery no se aplican solo al estilo de los elementos, sino que permiten realizar **acciones o manipulaciones** a esos elementos.
+
+- `:first`: Selecciona el primer elemento dentro de un conjunto de elementos. 
+- `:last`: Selecciona el último elemento dentro de un conjunto de elementos. 
+```javascript
+$("#elemento div:first").css("color", "red");
+$("#elemento div:last").css("color", "blue");
+```
+
+- `:gt(n)`: (Significa "greater than", mayor que). Selecciona todos los elementos cuyo índice es mayor que n. Es útil para seleccionar un subconjunto de elementos en función de su posición.
+```javascript
+$("#elemento div:gt(0)").hide();
+```
 
 ### Posiciones del ratón
 
@@ -206,5 +239,37 @@ div {
 	background: linear-gradient(#fff, #ccc);
 }
 ```
+- `#menu > li`: Se utiliza para seleccionar los elementos `<li>` que son hijos directos de un contenedor con el id `#menu`. Lo que significa que solo los elementos `<li>` que están directamente dentro de `#menu` se verán afectados por las reglas de estilo definidas.
+```css
+#menu > li {
+    background-color: blue;
+}
+```
+
+### Pseudoclases en CSS
+
+Las **pseudoclases** son palabras clave que se agregan a los selectores de CSS para definir un estado especial o condiciones de un elemento. Se aplican para seleccionar elementos que no son fáciles de seleccionar con selectores simples.
+
+- `:hover`: Se aplica cuando un usuario coloca el cursor sobre un elemento.
+```css
+button:hover {
+    background-color: light-gray;
+}
+```
+
+- `:active`: Se aplica a un elemento cuando se hace clic sobre él o se interactúa de alguna manera con él, hasta que se suelta el clic.
+```css
+a:active {
+    color: red;
+}
+```
+
+- `:first-child`: Selecciona el primer hijo de un elemento padre.
+- `:last-child`: Selecciona el último hijo de un elemento padre.
+```css
+#parent div:first-child {color: red;}
+#parent div:last-child {color: blue;}
+```
+
 
 ---
