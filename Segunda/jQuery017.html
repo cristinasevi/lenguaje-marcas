@@ -1,0 +1,59 @@
+<html>
+<head>
+	<title>Galería de imágenes II</title>
+<script type="text/javaScript" src="jquery-1.11.2.min.js"></script>
+<link rel="stylesheet" href="jQuery015.css" type="text/css"></link>
+<script>
+    /*
+    Funciones jQuery:
+    - gt() -> (Greater That): selecciona todos los elementos con índice mayor que el especificado
+    - setInterval() -> al cargar la página se ejecutará la instrucción especificada
+    - fadeOut() -> hace desaparecer el elemento en los milisegundos que especifiques
+    - fadeIn() -> hace aparecer el elemento en los milisegundos que especifiques
+    - next() -> pasa al siguiente tag
+    - end() -> se aplica cuando enecesitas volver al conjunto anterior para realizar otras operaciones
+    */
+    $(document).ready(function(event) {
+        $("#galeria div:gt(0)") .hide();
+
+        setInterval(function() {
+            $("#galeria div:first-child").fadeOut().next("div").fadeIn(1000).end().appendTo("#galeria"); 
+        }, 4000);
+    });
+</script>
+<style type="text/css">
+    #galeria {
+        position: relative;
+        width: 600;
+        height: 400;
+        overflow: hidden;
+        border: 10px solid #333;
+        padding: 0;
+        margin: 0 auto;
+        border-radius: 40px;
+    }
+
+    #galeria p {
+        position: absolute;
+        left: 100;
+        bottom: 30;
+        color: #eee;
+        background-color: #990000;
+        text-align: center;
+        width: 400px;
+        height: 40px;
+        padding: 5px;
+        font-size: 22px;
+        display: block;
+        opacity: 0.5;
+    }
+</style>
+</head>
+<body>
+    <div id="galeria">
+        <div><img src="/imagenes/imagen1.jpg" width="600" height="400"><p>Imagen 1</p></div>
+        <div><img src="/imagenes/imagen2.jpg" width="600" height="400"><p>Imagen 2</p></div>
+        <div><img src="/imagenes/imagen3.jpg" width="600" height="400"><p>Imagen 3</p></div>
+    </div>
+</body>
+</html>
