@@ -14,7 +14,7 @@
     - end() -> se aplica cuando enecesitas volver al conjunto anterior para realizar otras operaciones
     */
     $(document).ready(function(event) {
-        $("#galeria div:gt(0)") .hide();
+        $("#galeria div:gt(0)").hide();
 
         setInterval(function() {
             $("#galeria div:first-child").fadeOut().next("div").fadeIn(1000).end().appendTo("#galeria"); 
