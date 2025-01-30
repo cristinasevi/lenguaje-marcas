@@ -239,10 +239,49 @@ div {
 	background: linear-gradient(#fff, #ccc);
 }
 ```
+- `z-index`: Define la posición en el eje Z (profundidad) del elemento. `z-index: 1;` asegura que el elemento se dibuje por encima de otros que no tienen un valor de `z-index` o tienen valores más bajos.
+
 - `#menu > li`: Se utiliza para seleccionar los elementos `<li>` que son hijos directos de un contenedor con el id `#menu`. Lo que significa que solo los elementos `<li>` que están directamente dentro de `#menu` se verán afectados por las reglas de estilo definidas.
 ```css
 #menu > li {
     background-color: blue;
+}
+```
+
+#### Propiedades de transform
+
+- `transform: scale()`: Aplica un escalado al elemento, cambiando su tamaño en los ejes X y Y. El valor 1 representa el tamaño original (100%), y valores mayores o menores que 1 aumentan o disminuyen su tamaño, respectivamente.
+- `transform: skew()`: Aplica una distorsión de inclinación al elemento, inclinándolo a lo largo del eje X en un ángulo de los grados que le determines. Este efecto no cambia el tamaño del elemento, sino que lo deforma.
+```css
+div {
+	transform: scale(1);  
+	transform: skew(10deg);
+}
+```
+
+#### Propiedades de animación
+
+- `animation-duration: milisegundos`: Establece la duración de la animación. 
+- `animation-name`: Define el nombre de la animación. 
+- `@keyframes nombre_animacion`: Define los diferentes pasos de la animación.
+```css
+div {
+	animation-duration: 1s;
+	animation-name: nombre_animacion;
+}
+
+@keyframes nombre_animacion {
+    0% {
+        opacity: 0;
+        left: -150;
+    }
+    50% {
+        box-shadow: -10px 4px 8px 5px #000;
+    }
+    100% {
+        opacity: 1;
+        left: 1px;
+    }
 }
 ```
 
