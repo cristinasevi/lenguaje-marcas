@@ -1,0 +1,81 @@
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: inline-block;
+    padding: 5px;
+    border: 1px outset #375F85;
+    background-color: #375F85;
+    color: white;
+    width: 100px;
+    position: relative;
+    margin: -2px;
+    cursor: pointer;
+}
+
+#menu {
+    text-align: center;
+}
+
+.submenu {
+    position: absolute;
+    top: 30px;
+    left: -1px;
+    box-shadow: 0px 5px 5px #000;
+    display: none;
+    animation-duration: 1s;
+}
+
+.submenu>li{
+    animation-duration: 1.5s;
+    display: block;
+}
+
+.submenu li:last-child {
+    border-radius: 0px 0px 10px 10px;
+}
+
+#menu li:hover ul {
+    display: block;
+    animation-name: submenu; /* llamamos a la animacion */
+}
+
+@keyframes submenu {
+    0% {
+        opacity: 0;
+        left: -150;
+    }
+    50% {
+        transform: skew(10deg); /* inclinación en grados */
+        box-shadow: -10px 4px 8px 5px #000;
+    }
+    100% {
+        opacity: 1;
+        left: 1px;
+    }
+}
+
+.submenu li:hover {
+    background-color: #C9D7E6;
+    transform: scale(1.1);
+    z-index: 1; /* para que salga por encima */
+    text-shadow: 2px 2px 2px #375F85;
+    animation-name: botonsubmenu; /* llamamos a la animacion */
+}
+
+@keyframes botonsubmenu {
+    0% {
+        text-shadow: 200px 2px 20px #375F85;
+    }
+    50% {
+        transform: scale(1.3);
+        border-radius: 5px;
+    }
+    100% {
+        text-shadow: 2px 2px 2px #375F85;
+        transform: scale(1.1);
+    }
+}
