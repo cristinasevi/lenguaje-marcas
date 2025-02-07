@@ -239,6 +239,10 @@ div {
 	background: linear-gradient(#fff, #ccc);
 }
 ```
+- `box-shadow: 0px 0px 5px #000 inset`: Aplica una sombra interna al elemento.
+
+- `backface-visibility: hidden`: Oculta la parte trasera de un elemento cuando se usa una transformación en 3D, evitando que se vea reflejado o volteado.
+
 - `z-index`: Define la posición en el eje Z (profundidad) del elemento. `z-index: 1;` asegura que el elemento se dibuje por encima de otros que no tienen un valor de `z-index` o tienen valores más bajos.
 
 - `#menu > li`: Se utiliza para seleccionar los elementos `<li>` que son hijos directos de un contenedor con el id `#menu`. Lo que significa que solo los elementos `<li>` que están directamente dentro de `#menu` se verán afectados por las reglas de estilo definidas.
@@ -252,10 +256,16 @@ div {
 
 - `transform: scale()`: Aplica un escalado al elemento, cambiando su tamaño en los ejes X y Y. El valor 1 representa el tamaño original (100%), y valores mayores o menores que 1 aumentan o disminuyen su tamaño, respectivamente.
 - `transform: skew()`: Aplica una distorsión de inclinación al elemento, inclinándolo a lo largo del eje X en un ángulo de los grados que le determines. Este efecto no cambia el tamaño del elemento, sino que lo deforma.
+- `transform-style: preserve-3d;`: Mantiene la transformación en un espacio 3D, permitiendo que los elementos secundarios con transformaciones 3D se visualicen correctamente.
+- `transform: rotateY();`: Rota el elemento los grados que le indiques en el eje Y, volteándolo horizontalmente.
+- `transform: translateZ();`: Desplaza el elemento los píxeles que le indiques hacia adelante en el eje Z, creando un efecto de profundidad.
 ```css
 div {
 	transform: scale(1);  
 	transform: skew(10deg);
+	transform-style: preserve-3d;
+	transform: rotateY(180deg);
+    	transform: translateZ(100px);
 }
 ```
 
@@ -267,7 +277,8 @@ div {
 ```css
 div {
 	animation-duration: 1s;
-	animation-name: nombre_animacion;
+	animation-name: nombre_animacion ease 2s forwards;
+	/* Añade un efecto suavizado, una duración de 2s y 'forwards' que mantiene el estado final de la animación */
 }
 
 @keyframes nombre_animacion {
