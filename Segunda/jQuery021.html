@@ -1,0 +1,53 @@
+<html>
+<head>
+	<title>Examen - Gestor de Tareas</title>
+<script type="text/javaScript" src="jquery-1.11.2.min.js"></script>
+<style>
+    .completada {
+        text-decoration: line-through;
+        color: gray;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    li {
+        padding: 5px;
+        cursor: pointer;
+        width: max-content;
+    }
+
+    #addTarea, #borrarTareas {
+        margin: 5px;
+    }
+</style>
+<script language="JavaScript">
+    /*
+    Funciones jQuery:
+    - on() -> asignar eventos a elementos: on(evento, selector, datos, function)
+    - toggleClass() -> añade una clase a un elemento
+    */
+    $(document).ready(function() {
+        $("#addTarea").click(function() {
+            $("#lista").append("<li>" + $("#tarea").val() + "</li>"); // $("#tarea").val() --> tarea.value
+            $("#tarea").val(""); // para que vacie una vez metido el elemento
+        });
+        $("#lista").on("click", "li", function() {
+            $(this).toggleClass("completada"); 
+        });
+        $("#borrarTareas").click(function() {
+            $(".completada").remove();
+        });
+    });
+</script>
+</head>
+<body>
+    <h1>Lista de tareas</h1>
+    <input type="text" id="tarea" placeholder="Nueva tarea">
+    <button id="addTarea">Añadir Tarea</button>
+    <button id="borrarTareas">Eliminar Completadas</button>
+    <ul id="lista">
+    </ul>
+</body>
+</html>
