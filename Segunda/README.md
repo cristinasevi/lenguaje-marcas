@@ -45,9 +45,21 @@
 ```
 - `mousemove()`: Se activa al mover el ratón sobre el elemento.
 ```javascript
-  $(document).mousemove(function(event) {
-    // Código que se ejecuta al mover el ratón
-  });
+$(document).mousemove(function(event) {
+  console.log("Posición X: " + event.pageX + ", Posición Y: " + event.pageY);
+});
+```
+- `mouseover()`: Se activa cuando el cursor se posiciona sobre el elemento, sin necesidad de movimiento continuo. Es ideal para mostrar información adicional o efectos visuales al entrar en un área.
+```javascript
+$("#elemento").mouseover(function() {
+  $(this).css("background-color", "lightblue");
+});
+```
+- `mouseout()`: Se activa cuando el cursor abandona el área del elemento. Se suele utilizar para revertir cambios realizados por `mouseover` u otras acciones cuando el cursor se retira.
+```javascript
+$("#elemento").mouseout(function() {
+  $(this).css("background-color", "");
+});
 ```
 - `click()`: Se activa al hacer clic sobre el elemento.
 ```javascript
@@ -162,6 +174,21 @@ $("#elemento").next("div").css("color", "red");
 - `end()`: Se utiliza cuando necesitas volver al conjunto de elementos anterior, para deshacer una acción de selección y regresar a la selección previa. Es útil cuando se hace una serie de selecciones encadenadas.
 ```javascript
 $("#elemento").css("font-weight", "bold").end().css("color", "blue");
+```
+- `toggleClass()`: Agrega o elimina una clase en un elemento, dependiendo de si la tiene o no. Es útil para alternar estilos dinámicamente.
+```javascript
+$(this).toggleClass("completada");
+```
+- `on()`: Asigna eventos a elementos.
+  Estructura: `$(elemento).on(evento, selectorHijo, datos, function);`
+```javascript
+$("#lista").on("click", "li", function() {
+    $(this).toggleClass("completada"); 
+});
+```
+- `remove()`: Elimina completamente los elementos seleccionados del DOM, incluidos sus datos y eventos asociados. Esto es útil para limpiar elementos que ya no son necesarios en la página.
+```javascript
+$("#elemento").remove();
 ```
 
 ### Pseudoclases en jQuery
