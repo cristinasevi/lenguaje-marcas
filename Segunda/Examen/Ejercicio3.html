@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>Ejercicio 3</title>
+<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+<script language="JavaScript">
+    $(document).ready(function() {
+        var imagenes = [
+            "imagenes/deportes.png",
+            "imagenes/musica.png",
+            "imagenes/noticias.png",
+            "imagenes/tecnologia.png"
+        ];
+
+        var i = 0;
+
+        $("td").click(function() {
+            $(this).html("<img src='" + imagenes[i] + "' width='80px'>");
+            i++;
+            if(i >= imagenes.length) 
+                i = 0;
+        });
+    });
+</script>
+<style>
+    table {
+        border: 1px solid black;
+    }
+    td {
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+    }
+</style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td id="td1"></td>
+            <td id="td2"></td>
+        </tr>
+        <tr>
+            <td id="td3"></td>
+            <td id="td4"></td>
+        </tr>
+    </table>
+</body>
+</html>

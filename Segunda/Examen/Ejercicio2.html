@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Ejercicio 2</title>
+<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+<script language="JavaScript">
+    $(document).ready(function() {
+        $("#botonrojo").click(function() {
+            $("#div1").fadeOut(2000, function() {
+                $("#div1").css("background-color", "red").fadeIn(2000);
+            });
+        });
+        $("#botonazul").click(function() {
+            $("#div1").fadeOut(2000, function() {
+                $("#div1").css("background-color", "blue").fadeIn(2000);
+            });
+        });
+        $("#botonverde").click(function() {
+            $("#div1").fadeOut(2000, function() {
+                $("#div1").css("background-color", "green").fadeIn(2000);
+            });
+        });
+    });
+</script>
+<style>
+    #div1 {
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+        background-color: red;
+    }
+</style>
+</head>
+<body>
+    <button id="botonrojo" style="background-color:red">Rojo</button>
+    <button id="botonazul" style="background-color:blue">Azul</button>
+    <button id="botonverde" style="background-color:green">Verde</button>
+    <br><br>
+    <div id="div1"></div>
+</body>
+</html>
