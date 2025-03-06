@@ -1,0 +1,65 @@
+<html>
+<head>
+	<title>Marcas HTML5 para un formulario</title>
+<script type="text/javaScript" src="jquery-1.11.2.min.js"></script>
+<script language="JavaScript">
+    function mostrarEdad(value) {
+        verEdad.innerHTML = valor;
+    }
+</script>
+<style>
+	
+</style>
+</head>
+<body>
+    <!--
+    type="text"
+        autofocus: el campo se selecciona al cargar la página 
+        required: el campo es obligatorio completarlo
+        placeholder: mensaje que está en el campo que te indica que debes escribir y cuando empiezas se borra
+    
+    type="range" | type="number"
+        min: valor mínimo
+        max: valor máximo
+        value: valor predeterminado
+        step: que se incremente de un número en otro, por ejemplo de 2 en 2
+    
+    type="email"
+        list: vinculas la lista de contactos de <datalist>
+    type="color"
+    type="url"
+        autocomplete: se guarda el valor que hayas puesto en ese campo para que otra vez te salga
+    -->
+    <form action="">
+        <p>
+            Nombre: <input type="text" name="nombre" id="nombre" autofocus required>
+        </p>
+        <p>
+            E-mail: <input type="email" name="email" id="email" placeholder="Introduce un email">
+        </p>
+        <p>
+            Edad: <input type="range" name="edad" id="edad" min="18" max="70" value="35" onchange="mostrarEdad(this.value)">
+            <span id="verEdad">35</span>
+        </p>
+        <p>
+            Color: <input type="color" name="color" id="color">
+        </p>
+        <p>
+            Web: <input type="url" name="web" id="web" autocomplete="on">
+        </p>
+        <p>
+            Número par del 0 al 10: <input type="number" name="par" id="par" min="0" max="10" step="2">
+        </p>
+        <p>
+            Destinatario: <input type="email" name="destino" id="destino" list="listaDestinatarios" required>
+            <datalist id="listaDestinatarios"> <!-- aquí se define la lista, como si fuera un select -->
+                <option value="admin@salesianos.edu">Administrador</option>
+                <option value="agustin.sole@zaragoza.salesianos.edu">Agustín Solé</option>
+            </datalist>
+        </p>
+        <p>
+            <input type="submit">
+        </p>
+    </form>
+</body>
+</html>
