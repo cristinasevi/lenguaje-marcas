@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>Editor con HTML</title>
+<script type="text/javaScript" src="jquery-1.11.2.min.js"></script>
+<link rel="stylesheet" href="Ejercicio003.css">
+<script type="text/javascript" src="Ejercicio003.js"></script>
+</head>
+<body>
+    <!--
+    <div contenteditable="true"> convierte el div en un input type=text para que al clicar puedas meter texto
+    -->
+    <div id="principal">
+        <h2>Mensajes publicitarios</h2>
+        <div id="mensajes"></div>
+        <div id="editor">
+            <h3>Publica aquí tu mensaje</h3>
+            <div id="botones">
+                <img src="iconos/negrita.jpg" class="boton" onclick="negrita()">
+                <img src="iconos/cursiva.jpg" class="boton" onclick="cursiva()">
+                <img src="iconos/subrayado.jpg" class="boton" onclick="subrayado()">
+                <img src="iconos/alini.jpg" class="boton" onclick="alineaIzquierda()">
+                <img src="iconos/alinc.jpg" class="boton" onclick="alineaCentro()">
+                <img src="iconos/alind.jpg" class="boton" onclick="alineaDerecha()">
+                <img src="iconos/alinf.jpg" class="boton" onclick="alineaJustificado()">
+                <img src="iconos/lno.jpg" class="boton" onclick="listaNoOrdenada()">
+                <img src="iconos/lor.jpg" class="boton" onclick="listaOrdenada()">
+                <img src="iconos/subi.jpg" class="boton" onclick="subIndice()">
+                <img src="iconos/supi.jpg" class="boton" onclick="superIndice()">
+                <img src="iconos/fco.jpg" class="boton" onclick="foregroundColor()">
+                <img src="iconos/bco.jpg" class="boton" onclick="backgroundColor()">
+                <img src="iconos/imagen.jpg" class="boton" onclick="insertarImagen()">
+                <img src="iconos/hipervinculo.jpg" class="boton" onclick="hipervinculo()">
+            </div>
+            <div id="contenido" contenteditable="true"></div>
+        </div>
+    </div>
+</body>
+</html>
