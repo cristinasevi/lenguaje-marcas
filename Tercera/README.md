@@ -24,3 +24,39 @@
 #### Otros tipos de input
 - `type="color"`: Permite seleccionar un color mediante un selector de color.
 - `type="url"`: Campo específico para ingresar URLs, validando el formato adecuado.
+
+#### Atributos para `<div>`
+- `contenteditable="true"`: Convierte un `<div>` en un campo editable.
+
+### Marcas para formularios
+
+- `<header>`: Representa la cabecera de una página o sección, generalmente contiene logotipos, menús de navegación y encabezados.
+- `<hgroup>`: Agrupa un conjunto de encabezados (`<h1>` a `<h6>`) y subtítulos relacionados dentro de una sección o artículo.
+- `<nav>`: Define una sección de navegación que contiene enlaces a otras partes del sitio web o páginas externas.
+- `<section>`: Representa una división temática de contenido en un documento, usualmente con un título propio.
+- `<article>`: Contiene contenido independiente y reutilizable, como artículos de blogs, noticias o comentarios.
+- `<footer>`: Representa el pie de página de una sección o documento, suele contener información sobre el autor, enlaces de contacto y derechos de autor.
+- `<hr>`: Inserta una línea horizontal para separar visualmente secciones dentro de un documento.
+- `<aside>`: Define contenido relacionado pero independiente, como barras laterales, anuncios o información adicional.
+- `<span>`: Elemento en línea utilizado para aplicar estilos o manipular partes específicas del texto sin afectar su estructura.
+
+### JavaScript
+
+- `execCommand`: permite ejecutar comandos de edición sobre un documento HTML.
+Sintaxis: `execCommand(acción_a_ejecutar, boolean, valor)`
+
+```javascript
+function negrita() {
+    document.execCommand("bold", false, null);
+}
+
+function backgroundColor() {
+    color = prompt("Introduce el color del fondo");
+    window.document.execCommand("backcolor", false, color);
+}
+
+function insertarImagen() {
+    imagen = prompt("Introduce la ruta y el nombre del archivo");
+    window.document.execCommand("insertimage", false, imagen);
+}
+```
