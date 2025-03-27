@@ -62,5 +62,11 @@ function insertarImagen() {
 }
 
 function hipervinculo() {
-    window.document.execCommand("", false, null);
+    var url = prompt("Introduce la URL: ", "http://");
+    window.document.execCommand("createlink", false, url);
+}
+
+function publicar() {
+    var content = document.getElementById("contenido").innerHTML;
+    document.getElementById("mensajes").innerHTML = content;
 }

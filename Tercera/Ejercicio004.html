@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title>SessionStorage</title>
+<script language="JavaScript">
+    /*
+    sessionStorage.length : devuelve num elementos de variable sessionStorage.
+    sessionStorage.setItem(key, value) : se utiliza para almacenar key y value en el almacenamiento de sesión.
+    sessionStorage.key(posicion) : devuelve la key según el valor.
+    sessionStorage.getItem(key) : devuelve el valor de la key.
+    sessionStorage[key] = value : guarda un valor en sessionStorage.
+    sessionStorage.removeItem(key) : elimina la key.
+    sessionStorage.clear() : limpia la sesión.
+    */
+    window.onload = mostrar;
+
+    function mostrar() {
+        contenido.innerHTML = sessionStorage.length;
+        sessionStorage.setItem("Cristina", 20);
+        contenido.innerHTML = sessionStorage.length;
+        contenido.innerHTML += "<br>" + sessionStorage.key(0);
+        contenido.innerHTML += "<br>" + sessionStorage.getItem("Cristina");
+        sessionStorage["Pepe"] = 22;
+        contenido.innerHTML += "<br>" + sessionStorage.length;
+        contenido.innerHTML += "<br>" + sessionStorage.key(1);
+        contenido.innerHTML += "<br>" + sessionStorage.getItem("Pepe");
+        sessionStorage.removeItem("Pepe");
+        contenido.innerHTML += "<br>" + sessionStorage.length;
+        contenido.innerHTML += "<br>" + sessionStorage.key(1);
+        contenido.innerHTML += "<br>" + sessionStorage.key(0);
+        sessionStorage.clear();
+        contenido.innerHTML += "<br>" + sessionStorage.length;
+    }
+
+    // Hay que abrir el fichero desde Explorador de Archivos para que te coja bien las variables de sesión
+</script>
+</head>
+<body>
+    <div id="contenido"></div>
+</body>
+</html>
+
+<!--
+Sesión: variable de tiempo en que está abierta la página web.
+sessionStorage: guarda las variables en JSON de key y value.
+Carrito de la compra: lugar de almacenamiento temporal.
+-->
