@@ -59,4 +59,27 @@ function insertarImagen() {
     imagen = prompt("Introduce la ruta y el nombre del archivo");
     window.document.execCommand("insertimage", false, imagen);
 }
+
+function hipervinculo() {
+    var url = prompt("Introduce la URL: ", "http://");
+    window.document.execCommand("createlink", false, url);
+}
+
+function publicar() {
+    var content = document.getElementById("contenido").innerHTML;
+    document.getElementById("mensajes").innerHTML = content;
+}
 ```
+
+### Uso de `sessionStorage`
+
+`sessionStorage` es una API de almacenamiento en el navegador que permite guardar datos de sesión de forma temporal. Los datos se mantienen mientras la pestaña del navegador esté abierta, pero se eliminan al cerrar la pestaña.
+
+#### Métodos principales de `sessionStorage`
+- `sessionStorage.length`: Devuelve el número de elementos almacenados.
+- `sessionStorage.setItem(key, value)`: Almacena un valor asociado a una clave.
+- `sessionStorage.key(posicion)`: Obtiene la clave en la posición indicada.
+- `sessionStorage.getItem(key)`: Obtiene el valor asociado a una clave.
+- `sessionStorage[key] = value`: Otra forma de almacenar valores.
+- `sessionStorage.removeItem(key)`: Elimina un elemento por su clave.
+- `sessionStorage.clear()`: Vacía todo el almacenamiento de sesión.
