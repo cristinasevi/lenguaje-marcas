@@ -83,3 +83,8 @@ function publicar() {
 - `sessionStorage[key] = value`: Otra forma de almacenar valores.
 - `sessionStorage.removeItem(key)`: Elimina un elemento por su clave.
 - `sessionStorage.clear()`: Vacía todo el almacenamiento de sesión.
+
+### Propiedades CSS
+
+- `float: left;`: Hace que un elemento se alinee a la izquierda de su contenedor, permitiendo que el contenido fluya a su alrededor.
+- `clear: both;`: Evita que los elementos flotantes (con `float`) afecten el flujo del contenido. Coloca el elemento debajo de cualquier flotante, tanto a la izquierda como a la derecha.
