@@ -1,0 +1,49 @@
+<html>
+<head>
+	<title>Formulario para insertar un contacto en IndexDB</title>
+</head>
+<body>
+    <h1>Insertar contacto</h1>
+    <form id="contactoForm">
+        <label for="id">ID:</label>
+        <input id="id" name="id" required><br>
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" name="nombre" required><br>
+        <button type="submit">Agregar contacto</button>
+    </form>
+</body>
+<script language="JavaScript">
+    document.addEventListener('DOMContentLoaded', function(){
+        // Abrir la base de datos, si no la encuentra la crea
+        var request = window.indexedDB.open('contactos', 1);
+        
+        request.onerror = function(event) {
+            console.log("Error al abrir la base de datos");
+        }
+
+        request.onsuccess = function(event) {
+            var db = event.target.result;
+            var form = document.getElementById("contactoForm");
+            form.addEventListener("submit", function(e) {
+                e.preventDefault();
+
+                var transaction = db.transaction(['contactos'], 'readwrite');
+                var store = transaction.objectStore('contactos');
+                var contacto = { id: form.id.value, nombre: form.nombre.value };
+                var addRequest = store.add(contacto);
+            });
+        }
+
+        // Actualización de la versión
+        request.onupgradeneeded = function(event) {
+            var db = event.target.result;
+            var store = db.createObjectStore('contactos', { keyPath: 'id'});
+        }
+    });
+
+    /*
+        C:\Users\Cristina\AppData\Local\Google\Chrome\User Data\Profile 2/IndexDB
+        Inspeccionar (F12) -> Application -> IndexDB -> contactos
+    */
+</script>
+</html>
