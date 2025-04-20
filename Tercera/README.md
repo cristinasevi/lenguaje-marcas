@@ -84,6 +84,43 @@ function publicar() {
 - `sessionStorage.removeItem(key)`: Elimina un elemento por su clave.
 - `sessionStorage.clear()`: Vacía todo el almacenamiento de sesión.
 
+### Insertar en `IndexDB`
+#### Abrir base de datos con IndexedDB
+- `window.indexedDB.open('contactos', 1)`: Abre (o crea si no existe) una base de datos llamada contactos.
+- `request.onerror`: Muestra un mensaje en caso de error al abrir la base de datos.
+- `request.onsuccess`: Se ejecuta cuando la base de datos se ha abierto correctamente. Aquí se establece un listener para el formulario.
+
+#### Formulario de envío
+- `e.preventDefault()`: Al enviar el formulario, se evita la acción por defecto (recargar la página).
+- `db.transaction(['contactos'], 'readwrite')`: Crea una transacción de lectura y escritura para la base de datos.
+```javascript
+var db = event.target.result;
+var transaction = db.transaction(['contactos'], 'readwrite');
+```
+- `transaction.objectStore('contactos')`: Obtiene un almacén de objetos (object store) dentro de la transacción que se está realizando en la base de datos.
+```javascript
+var store = transaction.objectStore('contactos');
+```
+- `var contacto = {id: id, name: nombre}`: Crea un objeto que contiene los datos del formulario.
+```javascript
+var contacto = { id: form.id.value, nombre: form.nombre.value };
+```
+- `store.add(contacto)`: Inserta el contacto (con ID y nombre) en la base de datos.
+```javascript
+var addRequest = store.add(contacto);
+```
+
+#### Actualizar versión de la base de datos
+- `request.onupgradeneeded`: Se ejecuta cuando la base de datos necesita ser actualizada.
+- `createObjectStore`: Se crea un `objectStore` para guardar los contactos con `keyPath: 'id'`, lo que significa que cada contacto tiene un ID único.
+```javascript
+var db = event.target.result;
+var store = db.createObjectStore('contactos', { keyPath: 'id'});
+```
+
+#### Acceso a IndexedDB en el navegador
+La base de datos se guarda localmente en el navegador, y se puede inspeccionar a través de las herramientas de desarrollo (`F12` -> `Application` -> `IndexedDB`).
+
 ### Propiedades CSS
 
 - `float: left;`: Hace que un elemento se alinee a la izquierda de su contenedor, permitiendo que el contenido fluya a su alrededor.
