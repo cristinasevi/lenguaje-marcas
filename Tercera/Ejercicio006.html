@@ -17,33 +17,39 @@
         // Abrir la base de datos, si no la encuentra la crea
         var request = window.indexedDB.open('contactos', 1);
         
+        // Muestra un mensaje en caso de error al abrir la base de datos
         request.onerror = function(event) {
             console.log("Error al abrir la base de datos");
         }
 
+        // Se ejecuta cuando la base de datos se ha abierto correctamente
         request.onsuccess = function(event) {
             var db = event.target.result;
             var form = document.getElementById("contactoForm");
-            form.addEventListener("submit", function(e) {
-                e.preventDefault();
+            // Al enviar el formulario
+            form.addEventListener("submit", function(e) { 
+                e.preventDefault(); // Se evita la acción por defecto (recargar la página)
 
-                var transaction = db.transaction(['contactos'], 'readwrite');
-                var store = transaction.objectStore('contactos');
-                var contacto = { id: form.id.value, nombre: form.nombre.value };
-                var addRequest = store.add(contacto);
+                var transaction = db.transaction(['contactos'], 'readwrite'); // Abrir la base de datos para lectura y escritura
+                var store = transaction.objectStore('contactos'); // Obtiene un almacén de objetos (object store)
+                var contacto = { id: form.id.value, nombre: form.nombre.value }; // Crea un objeto que contiene los datos del formulario.
+                var addRequest = store.add(contacto); // Inserta el contacto (con ID y nombre) en la base de datos
             });
         }
 
-        // Actualización de la versión
+        // Actualización de la versión. Se ejecuta cuando la base de datos necesita ser actualizada
         request.onupgradeneeded = function(event) {
             var db = event.target.result;
-            var store = db.createObjectStore('contactos', { keyPath: 'id'});
+            var store = db.createObjectStore('contactos', { keyPath: 'id'}); // Se crea un `objectStore` para guardar los contactos con un ID único.
         }
     });
 
     /*
-        C:\Users\Cristina\AppData\Local\Google\Chrome\User Data\Profile 2/IndexDB
-        Inspeccionar (F12) -> Application -> IndexDB -> contactos
+        Buscar localmente IndexDB en tu equipo: C:\Users\Cristina\AppData\Local\Google\Chrome\User Data\Profile 2/IndexDB
+        Acceder desde el navegador a IndexDB: Inspeccionar (F12) -> Application -> IndexDB -> contactos -> contactos
+        Para que se vea la base de datos, hay que abrir este archivo .html desde Explorador de archivos, no con Live Server
+        Le tienes que dar a Refresh database cada vez que creas un campo.
+        Si da error hay que darle a Delete database.
     */
 </script>
 </html>

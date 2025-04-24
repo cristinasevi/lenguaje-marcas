@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>Leer de la base de datos IndexDB</title>
+</head>
+<body>
+    <h1>Contactos</h1>
+    <ul id="contactosList"></ul>
+</body>
+<script language="JavaScript">
+    document.addEventListener('DOMContentLoaded', function(){
+        // Abrir la base de datos, si no la encuentra la crea
+        var request = window.indexedDB.open('contactos', 1);
+        
+        // Muestra un mensaje en caso de error al abrir la base de datos
+        request.onerror = function(event) {
+            console.log("Error al abrir la base de datos");
+        }
+
+        // Se ejecuta cuando la base de datos se ha abierto correctamente
+        request.onsuccess = function(event) {
+            var db = event.target.result;
+            
+            var transaction = db.transaction(['contactos'], 'readonly'); // Abrir la base de datos sólo para lectura
+            var store = transaction.objectStore('contactos'); // Obtiene un almacén de objetos (object store)
+            var cursorRequest = store.openCursor(); // Devuelve un puntero que apunta a un objeto
+            
+            cursorRequest.onsuccess = function(event) {
+                var cursor = event.target.result;
+                if(cursor) {
+                    var li = document.createElement('li');
+                    li.textContent = `ID: ${cursor.value.id}, Nombre: ${cursor.value.nombre}`;
+                    contactosList.appendChild(li);
+                    cursor.continue();
+                }
+            }
+
+            // Muestra un mensaje en caso de error
+            cursorRequest.onerror = function(event) {
+                console.log('Error al mostrar contactos')
+            }
+        }
+
+        // Actualización de la versión. Se ejecuta cuando la base de datos necesita ser actualizada
+        request.onupgradeneeded = function(event) {
+            var db = event.target.result;
+            var store = db.createObjectStore('contactos', { keyPath: 'id'}); // Se crea un `objectStore` para guardar los contactos con un ID único.
+        }
+    });
+</script>
+</html>
