@@ -28,17 +28,40 @@
 #### Atributos para `<div>`
 - `contenteditable="true"`: Convierte un `<div>` en un campo editable.
 
-### Marcas para formularios
+### Marcas HTML5
 
+#### Estructura de la Página
 - `<header>`: Representa la cabecera de una página o sección, generalmente contiene logotipos, menús de navegación y encabezados.
-- `<hgroup>`: Agrupa un conjunto de encabezados (`<h1>` a `<h6>`) y subtítulos relacionados dentro de una sección o artículo.
+- `<footer>`: Representa el pie de página de una sección o documento, suele contener información sobre el autor, enlaces de contacto y derechos de autor.
 - `<nav>`: Define una sección de navegación que contiene enlaces a otras partes del sitio web o páginas externas.
 - `<section>`: Representa una división temática de contenido en un documento, usualmente con un título propio.
 - `<article>`: Contiene contenido independiente y reutilizable, como artículos de blogs, noticias o comentarios.
-- `<footer>`: Representa el pie de página de una sección o documento, suele contener información sobre el autor, enlaces de contacto y derechos de autor.
-- `<hr>`: Inserta una línea horizontal para separar visualmente secciones dentro de un documento.
 - `<aside>`: Define contenido relacionado pero independiente, como barras laterales, anuncios o información adicional.
+- `<hr>`: Inserta una línea horizontal para separar visualmente secciones dentro de un documento.
+
+#### Texto y Agrupación
+- `<hgroup>`: Agrupa un conjunto de encabezados (`<h1>` a `<h6>`) y subtítulos relacionados dentro de una sección o artículo.
 - `<span>`: Elemento en línea utilizado para aplicar estilos o manipular partes específicas del texto sin afectar su estructura.
+
+#### Formularios
+- `<form>`: Crea un formulario para recoger datos del usuario. Puede contener campos como `<input>`, `<select>`, `<textarea>`, y botones para enviar la información.
+- `<label>`: Asocia un texto descriptivo a un campo del formulario (como un `<input>`). Mejora la accesibilidad y permite que al hacer clic sobre el texto se seleccione automáticamente el campo relacionado. Se vincula con el atributo `for`, que debe coincidir con el `id` del campo de entrada.
+```javascript
+<form id="contactoForm">
+    <label for="id">ID:</label>
+    <input id="id" name="id" required><br>
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" name="nombre" required><br>
+    <button type="submit">Agregar contacto</button>
+</form>
+```
+
+#### Tablas
+- `<table>`: Crea una tabla para organizar datos en filas y columnas.
+- `<thread>`: Agrupa el encabezado de la tabla. Suele contener las etiquetas `<tr>` y `<th>`.
+- `<tbody>`: Agrupa el contenido principal de la tabla (las filas que no son parte del encabezado o pie).
+- `<tr>`: Define una fila dentro de la tabla.
+- `<th>`: Representa una celda de encabezado (negrita y centrada por defecto).
 
 ### JavaScript
 
@@ -117,6 +140,13 @@ var addRequest = store.add(contacto);
 var db = event.target.result;
 var store = db.createObjectStore('contactos', { keyPath: 'id'});
 ```
+
+### Leer de `IndexDB`
+
+
+
+
+
 
 #### Acceso a IndexedDB en el navegador
 La base de datos se guarda localmente en el navegador, y se puede inspeccionar a través de las herramientas de desarrollo (`F12` -> `Application` -> `IndexedDB`).
