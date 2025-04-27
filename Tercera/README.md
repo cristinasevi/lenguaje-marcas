@@ -142,11 +142,71 @@ var store = db.createObjectStore('contactos', { keyPath: 'id'});
 ```
 
 ### Leer de `IndexDB`
+#### Abrir base de datos con IndexedDB
+- `window.indexedDB.open('contactos', 1)`: Abre (o crea si no existe) una base de datos llamada contactos.
+- `request.onerror`: Muestra un mensaje en consola si hay un error al abrir la base de datos.
+- `request.onsuccess`: Se ejecuta al abrir la base de datos correctamente y permite acceder a los datos guardados.
 
+#### Leer datos de la base de datos
+- `db.transaction(['contactos'], 'readonly')`: Crea una transacción solo de lectura sobre la base de datos.
+```javascript
+var transaction = db.transaction(['contactos'], 'readonly');
+```
+- `transaction.objectStore('contactos')`: Obtiene el almacén de objetos contactos para acceder a los registros.
+```javascript
+var store = transaction.objectStore('contactos');
+```
+- `store.openCursor()`: Crea un cursor que recorre todos los registros almacenados uno por uno.
+```javascript
+var cursorRequest = store.openCursor();
+```
 
+#### Mostrar contactos
+#### Modo lista
+- `li.textContent = 'ID: ${cursor.value.id}, Nombre: ${cursor.value.nombre}'`: Crea un elemento `<li>` con los datos del contacto (id y nombre).
+- `contactosList.appendChild(li)`: Añade el `<li>` a la lista en la página.
+- `cursor.continue()`: Avanza al siguiente registro en la base de datos.
+```javascript
+cursorRequest.onsuccess = function(event) {
+    var cursor = event.target.result;
+    if(cursor) {
+        var li = document.createElement('li');
+        li.textContent = `ID: ${cursor.value.id}, Nombre: ${cursor.value.nombre}`;
+        contactosList.appendChild(li);
+        cursor.continue();
+    }
+}
+```
 
+#### Modo tabla
+- `var row = contactosTable.insertRow()`: Crea una nueva fila en la tabla.
+- `var idCell = row.insertCell(0)`: Crea una celda para el ID.
+- `var nombreCell = row.insertCell(1)`: Crea una celda para el Nombre.
+- `idCell.textContent = cursor.value.id`: Inserta el valor del ID en la celda.
+- `nombreCell.textContent = cursor.value.nombre`: Inserta el valor del Nombre en la celda.
+- `cursor = cursor.continue()`: Avanza al siguiente contacto.
+```javascript
+cursorRequest.onsuccess = function(event) {
+    var cursor = event.target.result;
+    while(cursor) {
+        var row = contactosTable.insertRow();
+        var idCell = row.insertCell(0);
+        var nombreCell = row.insertCell(1);
+        idCell.textContent = cursor.value.id;
+        nombreCell.textContent = cursor.value.nombre;
+        cursor = cursor.continue();
+    }
+}
+```
 
-
+#### Actualizar versión de la base de datos
+- `request.onupgradeneeded`: Se ejecuta si la base de datos necesita actualizarse. Aquí se crea (o recrea) el almacén de objetos contactos con keyPath: 'id', asegurando que cada contacto tenga un ID único.
+```javascript
+request.onupgradeneeded = function(event) {
+    var db = event.target.result;
+    var store = db.createObjectStore('contactos', { keyPath: 'id'});
+}
+```
 
 #### Acceso a IndexedDB en el navegador
 La base de datos se guarda localmente en el navegador, y se puede inspeccionar a través de las herramientas de desarrollo (`F12` -> `Application` -> `IndexedDB`).
