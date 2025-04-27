@@ -35,12 +35,12 @@
             cursorRequest.onsuccess = function(event) {
                 var cursor = event.target.result;
                 while(cursor) {
-                    var row = contactosTable.insertRow();
-                    var idCell = row.insertCell(0);
-                    var nombreCell = row.insertCell(1);
-                    idCell.textContent = cursor.value.id;
-                    nombreCell.textContent = cursor.value.nombre;
-                    cursor = cursor.continue();
+                    var row = contactosTable.insertRow(); // Crea una nueva fila en la tabla
+                    var idCell = row.insertCell(0); // Crea una celda para el ID
+                    var nombreCell = row.insertCell(1); // Crea una celda para el Nombre
+                    idCell.textContent = cursor.value.id; // Mete el valor del ID en la celda
+                    nombreCell.textContent = cursor.value.nombre; // Mete el valor del Nombre en la celda
+                    cursor = cursor.continue(); // Avanza al siguiente contacto
                 }
             }
 

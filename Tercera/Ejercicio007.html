@@ -27,10 +27,11 @@
             cursorRequest.onsuccess = function(event) {
                 var cursor = event.target.result;
                 if(cursor) {
+                    // Crea un elemento <li> con los datos de contacto (id y nombre)
                     var li = document.createElement('li');
                     li.textContent = `ID: ${cursor.value.id}, Nombre: ${cursor.value.nombre}`;
-                    contactosList.appendChild(li);
-                    cursor.continue();
+                    contactosList.appendChild(li); // Lo añade a la lista de la página
+                    cursor.continue(); // Avanza al siguiente registro en la base de datos
                 }
             }
 
