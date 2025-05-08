@@ -211,6 +211,59 @@ request.onupgradeneeded = function(event) {
 #### Acceso a IndexedDB en el navegador
 La base de datos se guarda localmente en el navegador, y se puede inspeccionar a través de las herramientas de desarrollo (`F12` -> `Application` -> `IndexedDB`).
 
+### Login con `Cookies`
+#### Estructura HTML
+Se crea un formulario simple con campos de texto y contraseña.
+Al enviar el formulario, se ejecuta `guardarCredenciales()` sin recargar la página `return false`.
+```javascript
+<form onsubmit="guardarCredenciales(); return false;">
+    Usuario: <input type="text" id="usuario"><br><br>
+    Contraseña: <input type="password" id="password"><br><br>
+    <button type="submit">Guardar</button>
+</form>
+```
+
+#### Script JavaScript
+- `nomUsuario = usuario.value`: Obtiene el valor del campo de usuario.
+- `password.value`: Obtiene el valor del campo de contraseña.
+- `document.cookie = 'usuario=${nomUsuario}; max-age=3600; path=/'`: Guarda cada valor en una cookie con duración de 1 hora `max-age=3600` y hace que la cookie esté disponible en todo el sitio. `path=/`.
+```javascript
+function guardarCredenciales() {
+    nomUsuario = usuario.value;
+    contra = password.value;
+    document.cookie = `usuario=${nomUsuario}; max-age=3600; path=/`; 
+    document.cookie = `password=${contra}; max-age=3600; path=/`; 
+    alert("Credenciales guardadas en cookies!");
+}
+```
+
+### Lectura de `Cookies`
+- `lista.innerHTML = ""`: Limpia la lista antes de volver a llenarla.
+- `const cookies = document.cookie.split(";")`: Separa cada cookie con un `;`.
+- ` cookies.forEach(cookie => {}`: Recorre cada cookie.
+- `const[clave, valor] = cookie.split("=")`: Separa la clave y el valor de cada cookie con un `=`.
+- `const item = document.createElement("li")`: Crea un elemento `<li>`.
+- `item.textContent = '${clave}: ${valor}'`: Mete el texto con la clave y el valor de la cookie.
+- `lista.appendChild(item)`: Lo añade a la lista del HTML.
+- `mostrarCookies()`: Llama a la función para que se ejecute nada más cargar la página
+
+```javascript
+function mostrarCookies() {
+    lista.innerHTML = "";
+    const cookies = document.cookie.split(";");
+    cookies.forEach(cookie => {
+        const [clave, valor] = cookie.split("=");
+        const item = document.createElement("li");
+        item.textContent = `${clave.trim()}: ${valor}`;
+        lista.appendChild(item);
+    });
+}
+mostrarCookies();
+```
+
+#### Acceso a Cookies en el navegador
+La base de datos se guarda localmente en el navegador, y se puede inspeccionar a través de las herramientas de desarrollo (`F12` -> `Application` -> `Cookies`).
+
 ### Propiedades CSS
 
 - `float: left;`: Hace que un elemento se alinee a la izquierda de su contenedor, permitiendo que el contenido fluya a su alrededor.
