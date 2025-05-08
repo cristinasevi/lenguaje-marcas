@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login con Cookies</title>
+</head>
+<body>
+    <!-- Al enviar el formulario, se llama a la función guardarCredenciales() y se usa return false para que la página no se recargue.-->
+    <form onsubmit="guardarCredenciales(); return false;">
+        Usuario: <input type="text" id="usuario"><br><br>
+        Contraseña: <input type="password" id="password"><br><br>
+        <button type="submit">Guardar</button>
+    </form>
+    <script>
+        function guardarCredenciales() {
+            nomUsuario = usuario.value;
+            contra = password.value;
+            document.cookie =`usuario=${nomUsuario}; max-age=3600; path=/`; // max-age: tiempo que dura una cookie
+            document.cookie = `password=${contra}; max-age=3600; path=/`; // path: ruta donde quieres guardar la cookie
+            alert("Credenciales guardadas en cookies!")
+        }
+
+        /*
+            Acceder desde el navegador a Cookies: Inspeccionar (F12) -> Application -> Cookies
+            Para que se vea la base de datos, hay que abrir este archivo con Live Server de Visual Studio Code
+        */
+    </script>
+</body>
+</html>
